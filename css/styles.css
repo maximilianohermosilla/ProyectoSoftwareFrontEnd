@@ -37,6 +37,10 @@ body {
   .navIcon{
     font-size: 32px;
   }
+
+  .btn{
+    border-radius: 0%;
+  }
   
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
