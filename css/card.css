@@ -1,0 +1,50 @@
+
+.card{
+    width: 20rem!important;
+    padding: 0px;
+    margin: 1rem;
+    background-color: #1b1b1b;
+    color: white;
+    border: 0!important;    
+    box-shadow: 0px 2px 8px rgba(1, 4, 2, 0.5);
+  }
+
+  .card>img:hover{
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .row>.card{
+    padding: 0px!important;
+  }
+
+  .card-body{
+    background-color: #343434;
+  }
+
+  .card-body>div{
+    position: absolute;
+    right:    0;
+    bottom:   0;
+    margin: 5px;
+  }
+
+  .card-body>p{
+    color: #c2c2c2;  
+  }
+
+  .card-body>h5{
+    margin-bottom: 0px;
+  }
+
+  .card-body>span{
+    position: absolute;
+    left:    0;
+    bottom:   0;
+    margin: 5px 15px;
+    font-weight: bold;
+  }
+
+  .card-img-top{
+    height: 15rem;
+  }

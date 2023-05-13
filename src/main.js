@@ -1,28 +1,37 @@
 import apiMercaderias from '/src/services/apiMercaderias.js'
-import RenderCard from '/src/views/cardMercaderia.js'
-import RenderDetalle from '/src/views/detalleMercaderia.js'
+import RenderCard from '/src/components/cardMercaderia.js'
+import RenderDetalle from '/src/components/detalleMercaderia.js'
 
-let modalHtml = '/pages/modalMercaderiaDetalle.html';
-let listaMercaderias = [];
+//Variables
+let elementTipo= document.getElementById("select-categoria");
+let elementOrden = document.getElementById("select-orden");
+let elementNombre = document.getElementById("txtSearch");
 let mercaderia;
+let listaMercaderias = [];
 
-loadHTML(modalHtml);
-
-const getMercaderias = async () => {
-    listaMercaderias = await apiMercaderias.Get();
-    renderCards();
+//Consts
+const getMercaderias = async () => {      
+    let tipo = elementTipo.options[elementTipo.selectedIndex].value;
+    let orden = elementOrden.options[elementOrden.selectedIndex].value;
+    let nombre = elementNombre.value;
+    tipo = tipo == '0'? '': tipo;
+    listaMercaderias = await apiMercaderias.Get(tipo, nombre, orden);
+    await renderCards();
 }
 
 const getMercaderiaById = async (id) => {  
     mercaderia = await apiMercaderias.GetById(id);
-    console.log(mercaderia);
     renderDetalle(mercaderia);
 }
 
-getMercaderias();
+const onClickElement = (id) => {
+    getMercaderiaById(id);
+}
 
-function renderCards(){
+//Functions
+async function renderCards(){
     let cardsContainer = document.getElementById("cardContainer");
+    cardsContainer.innerHTML = '';
     listaMercaderias.forEach(mercaderia =>{ 
         cardsContainer.innerHTML += RenderCard(mercaderia);
     })    
@@ -36,15 +45,6 @@ function renderDetalle(mercaderia){
     detalleMercaderia.innerHTML = RenderDetalle(mercaderia);
 }
 
-const searchButton = document.getElementById("btnSearch");
-searchButton.addEventListener('click', () =>{
-    getMercaderias();      
-})
-
-const onClickElement = (id) => {
-    getMercaderiaById(id);
-}
-
 function onListItemClick(elements){
     elements.forEach((element) => {
         element.addEventListener('click', () =>{
@@ -53,10 +53,30 @@ function onListItemClick(elements){
     });
 }
 
-function loadHTML(html){
-    fetch(html)
-    .then(response=> response.text())
-    .then(text=> document.getElementById('cardContainer').innerHTML = text);
-}
+//Actions DOM
+const searchButton = document.getElementById("btnSearch");
+searchButton.addEventListener('click', () =>{
+    console.log("click")
+    getMercaderias();      
+})
 
+const selectOrden = document.getElementById("select-orden")
+selectOrden.addEventListener('change', () =>{
+    getMercaderias();
+})
 
+const selectCategoria = document.getElementById("select-categoria");
+selectCategoria.addEventListener('change', () =>{
+    getMercaderias();
+})
+
+const inputSearch = document.getElementById("txtSearch");
+inputSearch.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      getMercaderias();
+    }
+})
+
+//onload
+getMercaderias();
