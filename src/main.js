@@ -1,17 +1,20 @@
 import apiMercaderias from '/src/services/apiMercaderias.js'
-import RenderCard from '/src/views/cardMercaderia.js'
-import RenderDetalle from '/src/views/detalleMercaderia.js'
+import RenderCard from '/src/components/cardMercaderia.js'
+import RenderDetalle from '/src/components/detalleMercaderia.js'
 
 //Variables
-let listaMercaderias = [];
+let elementTipo= document.getElementById("select-categoria");
+let elementOrden = document.getElementById("select-orden");
+let elementNombre = document.getElementById("txtSearch");
 let mercaderia;
+let listaMercaderias = [];
 
 //Consts
-const getMercaderias = async () => {  
-    let tipo= '';
-    let nombreElement = document.getElementById("txtSearch");
-    let nombre = nombreElement.value;
-    let orden = 'ASC';
+const getMercaderias = async () => {      
+    let tipo = elementTipo.options[elementTipo.selectedIndex].value;
+    let orden = elementOrden.options[elementOrden.selectedIndex].value;
+    let nombre = elementNombre.value;
+    tipo = tipo == '0'? '': tipo;
     listaMercaderias = await apiMercaderias.Get(tipo, nombre, orden);
     await renderCards();
 }
@@ -24,19 +27,6 @@ const getMercaderiaById = async (id) => {
 const onClickElement = (id) => {
     getMercaderiaById(id);
 }
-
-const searchButton = document.getElementById("btnSearch");
-searchButton.addEventListener('click', () =>{
-    console.log("click")
-    getMercaderias();      
-})
-
-//Load const
-setTimeout(() => {
-    getMercaderias();
-    
-}, 0);
-
 
 //Functions
 async function renderCards(){
@@ -62,3 +52,31 @@ function onListItemClick(elements){
         })
     });
 }
+
+//Actions DOM
+const searchButton = document.getElementById("btnSearch");
+searchButton.addEventListener('click', () =>{
+    console.log("click")
+    getMercaderias();      
+})
+
+const selectOrden = document.getElementById("select-orden")
+selectOrden.addEventListener('change', () =>{
+    getMercaderias();
+})
+
+const selectCategoria = document.getElementById("select-categoria");
+selectCategoria.addEventListener('change', () =>{
+    getMercaderias();
+})
+
+const inputSearch = document.getElementById("txtSearch");
+inputSearch.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      getMercaderias();
+    }
+})
+
+//onload
+getMercaderias();

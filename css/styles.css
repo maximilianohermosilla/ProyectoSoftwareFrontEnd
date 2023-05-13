@@ -19,7 +19,7 @@
     background: -webkit-linear-gradient(45deg , #000000,#444444);    
     color: white!important;
     text-shadow: 3px 3px 4px black;
-    margin: 34px;
+    margin: 34px 0px 20px 0px;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
@@ -27,7 +27,12 @@
 
   .search{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .search *{
+    margin: 0px 10px 0px 0px;
   }
   
   .icon-list{
@@ -43,14 +48,25 @@
   .flex-center{
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center; 
+  }
+
+  #btnSearch{
+    display: flex;
+    flex-direction: row;    
+  }
+
+  .spacer {
+    width: 2rem;
   }
 
   .text-center{
     text-align: center;
   }
 
-
+  #select-orden,  #select-categoria{
+    max-width: 200px;
+  }
 
   @media screen and (max-height: 450px) {
     .sidenav {
@@ -69,5 +85,27 @@
     }
     .bi{
       margin: 0px;
+    }    
+    #title{
+      margin: 10px 0px 20px 0px;
+    }
+    .search{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+    .search > *{
+      margin: 0px 10px 10px 0px;
+    }
+    #btnSearch{
+      display: block;
+      flex-direction: row;    
+      width: 100%;
+    }
+    #btnSearch>i{
+      margin-right: 5px;
+    }
+    #select-orden,  #select-categoria{
+      max-width: 380px;
     }
   }
