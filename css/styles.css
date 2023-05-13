@@ -1,16 +1,25 @@
   body {
     margin: 0;
     padding: 0;
-    font-family: "Lato", sans-serif;
+    font-family: "Lato", sans-serif!important;
     background: -webkit-linear-gradient(180deg , #7e7e7e,#3c3c3c);
     height: 100%;
   }
-
+  
+  .btn{
+    box-shadow: 0px 2px 8px rgba(1, 4, 2, 0.5);
+    border-radius: 3px!important;
+  }
+  
+  .bi{
+    margin-right: 5px;
+  }
+  
   #title{
-    background: -webkit-linear-gradient(0deg , #000000,#444444);    
+    background: -webkit-linear-gradient(45deg , #000000,#444444);    
     color: white!important;
     text-shadow: 3px 3px 4px black;
-    margin: 10px;
+    margin: 34px;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
@@ -21,46 +30,10 @@
     justify-content: center;
   }
   
-  .sidenav {
-    height: 100%;
-    width: 70px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  .sidenav a {
-    padding: 6px 6px 30px 20px;
-    text-decoration: none;
-    font-size: 20px;
-    color: green;
-    display: block;
-  }
-
-  .sidenavIcon i{
-    margin-right: 2px;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-
-  #navbar-toggler{
-    margin: 0px!important;
-  }
-
   .icon-list{
     display: flex!important;
     justify-content: center;
     flex-direction: row!important;
-  }
-  
-  .main {
-    margin-left: 200px; /* Same as the width of the sidenav */
   }
 
   #main-container{
@@ -77,71 +50,7 @@
     text-align: center;
   }
 
-  .bi{
-    margin-right: 5px;
-  }
 
-  .sidenavIcon{
-    margin-left: 70px;
-    text-decoration: none;
-    font-size: 25px;
-    color: green;
-    display: block;
-  }
-
-  .navIcon{
-    font-size: 32px;
-  }
-
-  .btn{
-    border-radius: 0%;
-  }
-
-  .navbar-brand{
-    color:white!important;
-  }
-
-  .card{
-    width: 20rem!important;
-    padding: 0px;
-    margin: 1rem;
-  }
-
-  .card>img:hover{
-    opacity: 0.7;
-    cursor: pointer;
-  }
-
-  .row>.card{
-    padding: 0px!important;
-  }
-
-  .card-body>div{
-    position: absolute;
-    right:    0;
-    bottom:   0;
-    margin: 5px;
-  }
-
-  .card-body>p{
-    color: #c2c2c2;  
-  }
-
-  .card-body>h5{
-    margin-bottom: 0px;
-  }
-
-  .card-body>span{
-    position: absolute;
-    left:    0;
-    bottom:   0;
-    margin: 5px 15px;
-    font-weight: bold;
-  }
-
-  .card-img-top{
-    height: 15rem;
-  }
 
   @media screen and (max-height: 450px) {
     .sidenav {
@@ -158,17 +67,7 @@
       padding: 0px;
       width: 100%;
     }
-
-    .sidenavIcon{
-      margin-left: 0px;
-    }
-
     .bi{
       margin: 0px;
-    }
-
-    #navbarSupportedContent{
-      border-top: 1px solid #333333;
-      margin-top: 5px;
     }
   }

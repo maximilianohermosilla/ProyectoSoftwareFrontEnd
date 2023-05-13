@@ -62,6 +62,3 @@ function onListItemClick(elements){
         })
     });
 }
-
-
-
