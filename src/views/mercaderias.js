@@ -1,7 +1,18 @@
 import apiMercaderias from '/src/services/apiMercaderias.js'
 import RenderCard from '/src/components/cardMercaderia.js'
 import RenderDetalle from '/src/components/detalleMercaderia.js'
+import loaderHtml from '/src/services/loaderHtml.js'
 
+let pages = [];
+
+let modalHtml = '/pages/modalMercaderiaDetalle.html';
+pages.push({ html: modalHtml, into: 'modalContainer'});
+
+const loadHtml = async (pages) => {
+    await loaderHtml.Get(pages);
+}
+
+loadHtml(pages);
 //Variables
 let elementTipo= document.getElementById("select-categoria");
 let elementOrden = document.getElementById("select-orden");
@@ -86,6 +97,26 @@ inputSearch.addEventListener("keypress", function(event) {
       getMercaderias();
     }
 })
+
+const eliminarProducto = () => {
+    const productoId = carrito.find((element) => element.MercaderiaId);
+
+    carrito = carrito.filter((carrito) => {
+        return carritoId !== productoId;
+    });
+
+    carritoCounter();
+    saveLocalStorage();
+    renderCarrito();
+}
+
+const carritoCounter = () => {
+    cantidadCarrito.style.display = "block";
+
+    const carritoLength = carrito.length;
+
+
+}
 
 //onload
 getMercaderias();

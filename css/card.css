@@ -33,6 +33,10 @@
     color: #c2c2c2;  
   }
 
+  .card-title{
+    color: white;
+  }
+
   .card-body>h5{
     margin-bottom: 0px;
   }

@@ -1,0 +1,70 @@
+.carrito{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 10px;   
+    box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
+}
+
+.carrito-img{
+    padding: 0px;
+    
+}
+
+.img-carrito{
+    width: 100%;    
+    max-height: 100px;
+    border-radius: 10px;
+}
+
+.div-body{
+    width: 100%;
+}
+
+.row>.carrito {
+    padding: 0px!important;
+}
+
+.span-cantidad{
+    padding: 1px 8px;    
+}
+
+.div-cantidad{
+    width: 100%;        
+}
+
+.cantidad-value{
+    color: white;
+    margin: 0px 5px;
+}
+
+.span-precio{
+    width: 100%;
+    font-size: 1rem;
+    color: white!important;
+    text-shadow: 2px 2px 3px #1b1b1b;
+    padding: 0px;
+}
+
+.carrito-precio{
+    padding-right: 0px;
+}
+
+@media screen and (max-width: 480px){    
+    #main-container{
+      padding: 0px;
+      width: 100%;
+    }
+
+    .img-carrito{
+        height: 100%;
+    }
+
+    .card-title{
+        font-size: 1rem;
+    }
+
+    .card-text{
+        font-size: 0.75rem;
+    }
+}
