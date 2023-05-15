@@ -4,38 +4,31 @@ import RenderDetalle from '/src/components/detalleMercaderia.js'
 import loaderHtml from '/src/services/loaderHtml.js'
 
 let pages = [];
-
-let modalHtml = '/pages/modalMercaderiaDetalle.html';
-pages.push({ html: modalHtml, into: 'modalContainer'});
-
+pages.push({ html: '/pages/modalMercaderiaDetalle.html', into: 'modalContainer'});
 const loadHtml = async (pages) => {
     await loaderHtml.Get(pages);
 }
-
 loadHtml(pages);
+
 //Variables
 let elementTipo= document.getElementById("select-categoria");
 let elementOrden = document.getElementById("select-orden");
 let elementNombre = document.getElementById("txtSearch");
 let mercaderia;
 let listaMercaderias = [];
-
-
-sessionStorage.setItem("id", btoa("1"));
-var idUsuario = atob(sessionStorage.getItem("id"));
-
-console.log(idUsuario);
+let carritoStorage = localStorage.getItem("mercaderias")? JSON.parse(localStorage.getItem("mercaderias")): [];
 
 //Consts
-const getMercaderias = async () => {      
+const getMercaderias = async () => {
     let tipo = elementTipo.options[elementTipo.selectedIndex].value;
     let orden = elementOrden.options[elementOrden.selectedIndex].value;
     let nombre = elementNombre.value;
     tipo = tipo == '0'? '': tipo;
     listaMercaderias = await apiMercaderias.Get(tipo, nombre, orden);
-    localStorage.setItem("mercaderias", btoa(JSON.stringify(listaMercaderias)));
-    var listaSession = atob(localStorage.getItem("mercaderias"));
-    console.log(JSON.parse(listaSession))
+    //localStorage.setItem("mercaderias", btoa(JSON.stringify(listaMercaderias)));
+    //localStorage.setItem("mercaderias", JSON.stringify(listaMercaderias));
+    //var listaSession = atob(localStorage.getItem("mercaderias"));
+    //console.log(JSON.parse(listaSession));
     await renderCards();
 }
 
@@ -48,6 +41,11 @@ const onClickElement = (id) => {
     getMercaderiaById(id);
 }
 
+const onClickButton = (id) => {
+    const product = listaMercaderias.find((element) => id == element.id);
+    agregarProducto(product);
+}
+
 //Functions
 async function renderCards(){
     let cardsContainer = document.getElementById("cardContainer");
@@ -56,6 +54,7 @@ async function renderCards(){
         cardsContainer.innerHTML += RenderCard(mercaderia);
     })    
     onListItemClick(document.querySelectorAll(".card-img-top"));
+    onButtonItemClick(document.querySelectorAll(".card-button"));
 }
 
 function renderDetalle(mercaderia){
@@ -69,6 +68,14 @@ function onListItemClick(elements){
     elements.forEach((element) => {
         element.addEventListener('click', () =>{
             onClickElement(element.id);
+        })
+    });
+}
+
+function onButtonItemClick(elements){
+    elements.forEach((element) => {
+        element.addEventListener('click', () =>{
+            onClickButton(element.id);
         })
     });
 }
@@ -111,12 +118,37 @@ const eliminarProducto = () => {
 }
 
 const carritoCounter = () => {
-    cantidadCarrito.style.display = "block";
-
-    const carritoLength = carrito.length;
-
-
+    //cantidadCarrito.style.display = "block";    
+    console.log(carritoStorage.length);    
+    const carritoLength = carritoStorage.length;
 }
+
+//const total = carrito.reduce((acc, el) => acc + el.precio * cantidad, 0);
+
+function agregarProducto(product){
+    const repeat = carritoStorage.some((repeatProduct) => repeatProduct.id === product.id);
+    console.log(product);
+    if(repeat){
+        carritoStorage.map((prod) => {
+            if (prod.id == product.id){
+                prod.cantidad++;
+            }            
+        });
+    } else{
+        carritoStorage.push({
+            id: product.id,
+            imagen: product.imagen,
+            nombre: product.nombre,
+            descripcion: product.tipo.descripcion,
+            precio: product.precio,
+            cantidad: 1
+        });
+    }
+    localStorage.setItem("mercaderias", JSON.stringify(carritoStorage));
+    carritoCounter();
+}
+
+
 
 //onload
 getMercaderias();

@@ -7,7 +7,7 @@ export default function RenderCard(mercaderia){
         <p class="card-text">${mercaderia.tipo.descripcion}</p>
         <span class="card-text">$${mercaderia.precio}</span>
         <div>
-            <a href="#" class="btn btn-success">+ Agregar</a>
+            <a id="${mercaderia.id}" class="btn btn-success card-button"><i class="bi bi-cart-plus"></i>Agregar</a>
         </div>
         </div>
     </div>    

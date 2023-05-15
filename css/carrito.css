@@ -21,6 +21,10 @@
     width: 100%;
 }
 
+.card-text{
+    color: #8c8c8c;
+}
+
 .row>.carrito {
     padding: 0px!important;
 }

@@ -6,21 +6,17 @@ let pages = [];
 
 let modalHtml = '/pages/modalMercaderiaDetalle.html';
 //pages.push({ html: modalHtml, into: 'modalContainer'});
-
 const loadHtml = async (pages) => {
-    await loaderHtml.Get(pages);
-}
+    await loaderHtml.Get(pages);}
 
 loadHtml(pages);
+
 //Variables
 let mercaderia;
 let listaMercaderias = [];
+let carritoStorage = localStorage.getItem("mercaderias")? JSON.parse(localStorage.getItem("mercaderias")): [];
 
-
-sessionStorage.setItem("id", btoa("1"));
-var idUsuario = atob(sessionStorage.getItem("id"));
-
-console.log(idUsuario);
+console.log(carritoStorage)
 
 //Consts
 const getMercaderias = async () => {      
@@ -29,9 +25,9 @@ const getMercaderias = async () => {
     let nombre = '';
     tipo = tipo == '0'? '': tipo;
     listaMercaderias = await apiMercaderias.Get(tipo, nombre, orden);
-    localStorage.setItem("mercaderias", btoa(JSON.stringify(listaMercaderias)));
-    var listaSession = atob(localStorage.getItem("mercaderias"));
-    console.log(JSON.parse(listaSession))    
+    // localStorage.setItem("mercaderias", btoa(JSON.stringify(listaMercaderias)));
+    // var listaSession = atob(localStorage.getItem("mercaderias"));
+    // console.log(JSON.parse(listaSession))    
     await renderCarrito();
     groupProducts();
 }
@@ -49,7 +45,7 @@ const onClickElement = (id) => {
 async function renderCarrito(){
     let cardsContainer = document.getElementById("carritoContainer");
     cardsContainer.innerHTML = '';
-    listaMercaderias.forEach(mercaderia =>{ 
+    carritoStorage.forEach(mercaderia =>{ 
         cardsContainer.innerHTML += RenderCarrito(mercaderia);
     })    
     onListItemClick(document.querySelectorAll(".card-img-top"));
