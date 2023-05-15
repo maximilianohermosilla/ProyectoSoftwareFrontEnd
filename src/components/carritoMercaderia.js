@@ -18,7 +18,7 @@ export default function RenderCarrito(mercaderia){
             </div>
         </div>
         <div class="carrito-precio col-lg-2 col-3 flex-center">
-            <button class="span-precio btn btn-warning" disabled>$${mercaderia.precio}</button>
+            <button class="span-precio btn btn-warning" disabled>$${mercaderia.precio * mercaderia.cantidad}</button>
         </div>
     </div>
     `;
