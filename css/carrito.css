@@ -55,9 +55,35 @@
     padding: 0px;
 }
 
+.form-check{
+    padding: 0 20%;
+}
+
 .carrito-precio{
     padding-right: 0px;
 }
+
+.check-forma{   
+    color: white;
+}
+
+#div-confirmar{
+    border: 1px solid grey;
+    height: 100%;
+    border-radius: 10px;
+    margin: 5px; 
+    box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
+}
+
+.divButton{
+    padding: 3vh 0;
+}
+
+#btnConfirmarPedido{
+    padding: 10px;
+    width: 200px;
+}
+
 
 @media screen and (max-width: 480px){    
     #main-container{

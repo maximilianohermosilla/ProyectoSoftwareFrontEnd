@@ -25,11 +25,7 @@ const getMercaderias = async () => {
     let nombre = '';
     tipo = tipo == '0'? '': tipo;
     listaMercaderias = await apiMercaderias.Get(tipo, nombre, orden);
-    // localStorage.setItem("mercaderias", btoa(JSON.stringify(listaMercaderias)));
-    // var listaSession = atob(localStorage.getItem("mercaderias"));
-    // console.log(JSON.parse(listaSession))    
     await renderCarrito();
-    groupProducts();
 }
 
 const getMercaderiaById = async (id) => {  
@@ -38,7 +34,9 @@ const getMercaderiaById = async (id) => {
 }
 
 const onClickElement = (id) => {
-    getMercaderiaById(id);
+    //getMercaderiaById(id);
+    var tooltip = document.getElementById("cantidad-tooltip");
+    tooltip.style.display = "flex";
 }
 
 //Functions
@@ -48,7 +46,7 @@ async function renderCarrito(){
     carritoStorage.forEach(mercaderia =>{ 
         cardsContainer.innerHTML += RenderCarrito(mercaderia);
     })    
-    onListItemClick(document.querySelectorAll(".card-img-top"));
+    onButtonItemClick(document.querySelectorAll(".span-cantidad"));
 }
 
 function renderDetalle(mercaderia){
@@ -58,7 +56,7 @@ function renderDetalle(mercaderia){
     detalleMercaderia.innerHTML = RenderDetalle(mercaderia);
 }
 
-function onListItemClick(elements){
+function onButtonItemClick(elements){
     elements.forEach((element) => {
         element.addEventListener('click', () =>{
             onClickElement(element.id);
@@ -73,33 +71,8 @@ function groupProducts(){
         group[tipo.id].push(product);
         return group;
         }, {});
-    console.log(resultado);
+    //console.log(resultado);
 }
-
-// //Actions DOM
-// const searchButton = document.getElementById("btnSearch");
-// searchButton.addEventListener('click', () =>{
-//     console.log("click")
-//     getMercaderias();      
-// })
-
-// const selectOrden = document.getElementById("select-orden")
-// selectOrden.addEventListener('change', () =>{
-//     getMercaderias();
-// })
-
-// const selectCategoria = document.getElementById("select-categoria");
-// selectCategoria.addEventListener('change', () =>{
-//     getMercaderias();
-// })
-
-// const inputSearch = document.getElementById("txtSearch");
-// inputSearch.addEventListener("keypress", function(event) {
-//     if (event.key === "Enter") {
-//       event.preventDefault();
-//       getMercaderias();
-//     }
-// })
 
 const eliminarProducto = () => {
     const productoId = carrito.find((element) => element.MercaderiaId);
@@ -117,9 +90,15 @@ const carritoCounter = () => {
     cantidadCarrito.style.display = "block";
 
     const carritoLength = carrito.length;
-
-
 }
+
+const btnConfirmar = document.getElementById("btnConfirmarPedido");
+btnConfirmar.addEventListener('click', () =>{
+    var checked = document.querySelector('input[name="check-entrega"]:checked').id;
+    console.log(checked);
+})
+
+
 
 //onload
 getMercaderias();

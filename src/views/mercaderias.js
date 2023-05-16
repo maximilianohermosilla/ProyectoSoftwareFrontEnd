@@ -2,6 +2,7 @@ import apiMercaderias from '/src/services/apiMercaderias.js'
 import RenderCard from '/src/components/cardMercaderia.js'
 import RenderDetalle from '/src/components/detalleMercaderia.js'
 import loaderHtml from '/src/services/loaderHtml.js'
+import renderCounter from '/src/services/renderCounter.js'
 
 let pages = [];
 pages.push({ html: '/pages/modalMercaderiaDetalle.html', into: 'modalContainer'});
@@ -25,10 +26,6 @@ const getMercaderias = async () => {
     let nombre = elementNombre.value;
     tipo = tipo == '0'? '': tipo;
     listaMercaderias = await apiMercaderias.Get(tipo, nombre, orden);
-    //localStorage.setItem("mercaderias", btoa(JSON.stringify(listaMercaderias)));
-    //localStorage.setItem("mercaderias", JSON.stringify(listaMercaderias));
-    //var listaSession = atob(localStorage.getItem("mercaderias"));
-    //console.log(JSON.parse(listaSession));
     await renderCards();
 }
 
@@ -146,6 +143,7 @@ function agregarProducto(product){
     }
     localStorage.setItem("mercaderias", JSON.stringify(carritoStorage));
     carritoCounter();
+    renderCounter.Show();
 }
 
 
