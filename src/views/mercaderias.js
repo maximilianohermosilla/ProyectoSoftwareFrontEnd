@@ -40,9 +40,14 @@ const onClickElement = (id) => {
     getMercaderiaById(id);
 }
 
-const onClickButton = (id) => {
-    const product = listaMercaderias.find((element) => id == element.id);
-    agregarProducto(product);
+const onClickAdd = (id) => {
+    agregarProducto(id);
+}
+const onClickRemove = (id) => {
+    quitarProducto(id);
+}
+const onClickDeleteElement = (id) => {
+    eliminarProducto(id);
 }
 
 //Actions DOM
@@ -97,7 +102,9 @@ async function renderCarrito(){
     carritoStorage.forEach(mercaderia =>{ 
         cardsContainer.innerHTML += RenderCarrito(mercaderia);
     })    
-    onButtonItemClick(document.querySelectorAll(".span-cantidad"));
+    onButtonAddClick(document.querySelectorAll(".btnAgregarCantidad"));
+    onButtonRemoveClick(document.querySelectorAll(".btnQuitarCantidad"));
+    onButtonDeleteElementClick(document.querySelectorAll(".delete-icon"));
 }
 
 function onImageItemClick(elements){
@@ -111,14 +118,39 @@ function onImageItemClick(elements){
 function onButtonItemClick(elements){
     elements.forEach((element) => {
         element.addEventListener('click', () =>{
-            onClickButton(element.id);
+            onClickAdd(element.id);
         })
     });
 }
 
-function agregarProducto(product){
+function onButtonAddClick(elements){
+    elements.forEach((element) => {
+        element.addEventListener('click', () =>{
+            onClickAdd(element.id);
+        })
+    });
+}
+
+function onButtonRemoveClick(elements){
+    elements.forEach((element) => {
+        element.addEventListener('click', () =>{
+            onClickRemove(element.id);
+        })
+    });
+}
+
+function onButtonDeleteElementClick(elements){
+    elements.forEach((element) => {
+        element.addEventListener('click', () =>{
+            onClickDeleteElement(element.id);
+        })
+    });
+}
+
+function agregarProducto(id){
+    const product = listaMercaderias.find((element) => id == element.id);
     const repeat = carritoStorage.some((repeatProduct) => repeatProduct.id === product.id);
-    console.log(product);
+    //console.log(product);
     if(repeat){
         carritoStorage.map((prod) => {
             if (prod.id == product.id){
@@ -140,14 +172,34 @@ function agregarProducto(product){
     saveLocalStorage(carritoStorage);
 }
 
-function eliminarProducto(){
-    const productoId = carrito.find((element) => element.MercaderiaId);
+function quitarProducto(id){
+    carritoStorage.map((prod) => {
+        if(prod.cantidad == 1 && prod.id == id){
+            console.log(prod);
+            eliminarProducto(id);
+        }
+        if (prod.id == id && prod.cantidad > 1){
+            console.log(prod);
+            prod.cantidad--;
+        }            
+    });
+    saveLocalStorage(carritoStorage);
+    if (!carritoStorage.length > 0){ 
+        window.location.reload();
+    }
+    renderCarrito();
+}
 
-    carrito = carrito.filter((carrito) => {
-        return carritoId !== productoId;
+const eliminarProducto = (id) => {
+    const productoId = carritoStorage.find((element) => element.id == id);
+
+    carritoStorage = carritoStorage.filter((carrito) => {
+        return carrito !== productoId;
     });
 
-    saveLocalStorage(carritoStorage)
+    //carritoCounter();
+    saveLocalStorage(carritoStorage);
+    renderCarrito();
 }
 
 function saveLocalStorage(carritoStorage){
@@ -157,8 +209,7 @@ function saveLocalStorage(carritoStorage){
 }
 
 function checkCarrito(){    
-    if (carritoStorage.length > 0){
-        console.log("hay carrito")
+    if (carritoStorage.length > 0){        
         setTimeout(() => {
             showCarrito();
         }, 500);        

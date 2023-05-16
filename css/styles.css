@@ -117,6 +117,7 @@
 
 #carrito-container{
   display: none;
+  margin-top: 10px;
 }
 
 
@@ -159,5 +160,8 @@
     }
     #select-orden,  #select-categoria{
       max-width: 480px;
+    }
+    #cardContainer{
+      padding-left: 25px;
     }
   }
