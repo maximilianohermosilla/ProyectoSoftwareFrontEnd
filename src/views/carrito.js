@@ -1,10 +1,10 @@
-import apiMercaderias from '/src/services/apiMercaderias.js'
 import RenderCarrito from '/src/components/carritoMercaderia.js'
 import loaderHtml from '/src/services/loaderHtml.js'
 
 let pages = [];
 
 let modalHtml = '/pages/modalMercaderiaDetalle.html';
+pages.push({ html: '/pages/carritoDetalle.html', into: 'carrito-container'});
 //pages.push({ html: modalHtml, into: 'modalContainer'});
 const loadHtml = async (pages) => {
     await loaderHtml.Get(pages);}
@@ -12,29 +12,13 @@ const loadHtml = async (pages) => {
 loadHtml(pages);
 
 //Variables
-let mercaderia;
 let listaMercaderias = [];
 let carritoStorage = localStorage.getItem("mercaderias")? JSON.parse(localStorage.getItem("mercaderias")): [];
 
 console.log(carritoStorage)
 
 //Consts
-const getMercaderias = async () => {      
-    let tipo = '';
-    let orden = 'ASC';
-    let nombre = '';
-    tipo = tipo == '0'? '': tipo;
-    listaMercaderias = await apiMercaderias.Get(tipo, nombre, orden);
-    await renderCarrito();
-}
-
-const getMercaderiaById = async (id) => {  
-    mercaderia = await apiMercaderias.GetById(id);
-    renderDetalle(mercaderia);
-}
-
 const onClickElement = (id) => {
-    //getMercaderiaById(id);
     var tooltip = document.getElementById("cantidad-tooltip");
     tooltip.style.display = "flex";
 }
@@ -47,13 +31,6 @@ async function renderCarrito(){
         cardsContainer.innerHTML += RenderCarrito(mercaderia);
     })    
     onButtonItemClick(document.querySelectorAll(".span-cantidad"));
-}
-
-function renderDetalle(mercaderia){
-    let detalleMercaderia = document.getElementById("modalMercaderiaBody");
-    let mercaderiaTitle = document.getElementById("modalMercaderiaTitle");
-    modalMercaderiaTitle.innerHTML = mercaderia.nombre;
-    detalleMercaderia.innerHTML = RenderDetalle(mercaderia);
 }
 
 function onButtonItemClick(elements){
@@ -74,6 +51,26 @@ function groupProducts(){
     //console.log(resultado);
 }
 
+function domSettings(){
+    const pedidoContainer = document.getElementById("carrito-container");
+    const btnConfirmar = document.getElementById("btnConfirmarPedido");
+    const btnCancelar = document.getElementById("btnCancelarPedido");
+    pedidoContainer.style.display = "block";
+
+    renderCarrito();
+
+    btnConfirmar.addEventListener('click', () =>{
+        var checked = document.querySelector('input[name="check-entrega"]:checked').id;
+        console.log(checked);
+    })    
+    
+    btnCancelar.addEventListener('click', () =>{
+        localStorage.removeItem("mercaderias");
+        
+        window.location.reload();
+    })    
+}
+
 const eliminarProducto = () => {
     const productoId = carrito.find((element) => element.MercaderiaId);
 
@@ -92,13 +89,23 @@ const carritoCounter = () => {
     const carritoLength = carrito.length;
 }
 
-const btnConfirmar = document.getElementById("btnConfirmarPedido");
-btnConfirmar.addEventListener('click', () =>{
-    var checked = document.querySelector('input[name="check-entrega"]:checked').id;
-    console.log(checked);
-})
+function checkCarrito(){    
+    if (!carritoStorage.length > 0){
+        var carritoContainer = document.getElementById("carrito-container");
+        var titleEmpty = document.getElementById("title-empty");
+        carritoContainer.style.display = "none";    
+        titleEmpty.textContent = "El carrito está vacío";
+        titleEmpty.className = "title divTituloCarrito";
+    }
+}
+
+
+setTimeout(() => {
+    domSettings();
+    checkCarrito();
+}, 1000);
 
 
 
 //onload
-getMercaderias();
+//getMercaderias();

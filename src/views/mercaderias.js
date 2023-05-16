@@ -1,11 +1,13 @@
+import loaderHtml from '/src/services/loaderHtml.js'
 import apiMercaderias from '/src/services/apiMercaderias.js'
 import RenderCard from '/src/components/cardMercaderia.js'
 import RenderDetalle from '/src/components/detalleMercaderia.js'
-import loaderHtml from '/src/services/loaderHtml.js'
+import RenderCarrito from '/src/components/carritoMercaderia.js'
 import renderCounter from '/src/services/renderCounter.js'
 
 let pages = [];
 pages.push({ html: '/pages/modalMercaderiaDetalle.html', into: 'modalContainer'});
+pages.push({ html: '/pages/carritoDetalle.html', into: 'carrito-container'});
 const loadHtml = async (pages) => {
     await loaderHtml.Get(pages);
 }
@@ -43,40 +45,6 @@ const onClickButton = (id) => {
     agregarProducto(product);
 }
 
-//Functions
-async function renderCards(){
-    let cardsContainer = document.getElementById("cardContainer");
-    cardsContainer.innerHTML = '';
-    listaMercaderias.forEach(mercaderia =>{ 
-        cardsContainer.innerHTML += RenderCard(mercaderia);
-    })    
-    onListItemClick(document.querySelectorAll(".card-img-top"));
-    onButtonItemClick(document.querySelectorAll(".card-button"));
-}
-
-function renderDetalle(mercaderia){
-    let detalleMercaderia = document.getElementById("modalMercaderiaBody");
-    let mercaderiaTitle = document.getElementById("modalMercaderiaTitle");
-    modalMercaderiaTitle.innerHTML = mercaderia.nombre;
-    detalleMercaderia.innerHTML = RenderDetalle(mercaderia);
-}
-
-function onListItemClick(elements){
-    elements.forEach((element) => {
-        element.addEventListener('click', () =>{
-            onClickElement(element.id);
-        })
-    });
-}
-
-function onButtonItemClick(elements){
-    elements.forEach((element) => {
-        element.addEventListener('click', () =>{
-            onClickButton(element.id);
-        })
-    });
-}
-
 //Actions DOM
 const searchButton = document.getElementById("btnSearch");
 searchButton.addEventListener('click', () =>{
@@ -102,25 +70,51 @@ inputSearch.addEventListener("keypress", function(event) {
     }
 })
 
-const eliminarProducto = () => {
-    const productoId = carrito.find((element) => element.MercaderiaId);
-
-    carrito = carrito.filter((carrito) => {
-        return carritoId !== productoId;
-    });
-
-    carritoCounter();
-    saveLocalStorage();
-    renderCarrito();
-}
-
-const carritoCounter = () => {
-    //cantidadCarrito.style.display = "block";    
-    console.log(carritoStorage.length);    
-    const carritoLength = carritoStorage.length;
-}
 
 //const total = carrito.reduce((acc, el) => acc + el.precio * cantidad, 0);
+
+//Functions
+async function renderCards(){
+    let cardsContainer = document.getElementById("cardContainer");
+    cardsContainer.innerHTML = '';
+    listaMercaderias.forEach(mercaderia =>{ 
+        cardsContainer.innerHTML += RenderCard(mercaderia);
+    })    
+    onImageItemClick(document.querySelectorAll(".card-img-top"));
+    onButtonItemClick(document.querySelectorAll(".card-button"));
+}
+
+function renderDetalle(mercaderia){
+    let detalleMercaderia = document.getElementById("modalMercaderiaBody");
+    let mercaderiaTitle = document.getElementById("modalMercaderiaTitle");
+    modalMercaderiaTitle.innerHTML = mercaderia.nombre;
+    detalleMercaderia.innerHTML = RenderDetalle(mercaderia);
+}
+
+async function renderCarrito(){
+    let cardsContainer = document.getElementById("carritoContainer");
+    cardsContainer.innerHTML = '';
+    carritoStorage.forEach(mercaderia =>{ 
+        cardsContainer.innerHTML += RenderCarrito(mercaderia);
+    })    
+    onButtonItemClick(document.querySelectorAll(".span-cantidad"));
+}
+
+function onImageItemClick(elements){
+    elements.forEach((element) => {
+        element.addEventListener('click', () =>{
+            onClickElement(element.id);
+        })
+    });
+}
+
+function onButtonItemClick(elements){
+    elements.forEach((element) => {
+        element.addEventListener('click', () =>{
+            onClickButton(element.id);
+        })
+    });
+}
 
 function agregarProducto(product){
     const repeat = carritoStorage.some((repeatProduct) => repeatProduct.id === product.id);
@@ -141,12 +135,51 @@ function agregarProducto(product){
             cantidad: 1
         });
     }
-    localStorage.setItem("mercaderias", JSON.stringify(carritoStorage));
-    carritoCounter();
+    showCarrito();
+    renderCarrito()
+    saveLocalStorage(carritoStorage);
+}
+
+function eliminarProducto(){
+    const productoId = carrito.find((element) => element.MercaderiaId);
+
+    carrito = carrito.filter((carrito) => {
+        return carritoId !== productoId;
+    });
+
+    saveLocalStorage(carritoStorage)
+}
+
+function saveLocalStorage(carritoStorage){
+    
+    localStorage.setItem("mercaderias", JSON.stringify(carritoStorage));    
     renderCounter.Show();
 }
 
+function checkCarrito(){    
+    if (carritoStorage.length > 0){
+        console.log("hay carrito")
+        setTimeout(() => {
+            showCarrito();
+        }, 500);        
+    }
+}
+
+function showCarrito(){
+    const carritoLista =  document.getElementById("carrito-lista");
+    const carritoConfirmacion =  document.getElementById("carrito-confirmacion");
+    const carritoTitulo = document.getElementById("tituloCarrito");
+    const pedidoContainer = document.getElementById("carrito-container");
+    const mercaderiasContainer = document.getElementById("cardContainer");
+    pedidoContainer.style.display = "block";
+    mercaderiasContainer.className = 'col-lg-9 col-12 row flex-center';
+    carritoLista.classList = 'col-12';
+    carritoConfirmacion.classList = 'col-12';
+    carritoTitulo.classList = 'flex-center title div-confirmar';
+    carritoTitulo.textContent = "Pedido"
+}
 
 
 //onload
 getMercaderias();
+checkCarrito();

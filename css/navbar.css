@@ -33,7 +33,6 @@
   
   .sidenav {
     height: 100%;
-    width: 70px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -66,7 +65,7 @@
 
   
   .sidenavIcon{
-    margin-left: 70px;
+    margin-left: 20px;
     text-decoration: none;
     font-size: 25px;
     color: #65cd23;
