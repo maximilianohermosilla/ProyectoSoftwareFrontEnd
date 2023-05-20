@@ -4,10 +4,10 @@ export default function RenderConfirmModal(title, text){
     <div class="modal-dialog">
       <div class="modal-content confirm-dialog">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="confirmModalTitle">${title}</h1>
+          <h1 class="modal-title fs-5" id="confirmModalTitle"><strong>${title}</strong></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body flex-center">
           <span id="confirmModalText">${text}</span>
         </div>
         <div class="modal-footer">
@@ -17,5 +17,8 @@ export default function RenderConfirmModal(title, text){
       </div>
     </div>
   </div>  
+  <div class="container-fluid" id="popUpContainer">
+            <!-- popup.js -->
+  </div> 
     `;
 }

@@ -1,6 +1,8 @@
 import loaderHtml from '/src/services/loaderHtml.js'
 import carritoService from '/src/services/carritoService.js'
 import RenderConfirmModal from '/src/components/confirmModal.js'
+import RenderPopUp from '/src/components/popup.js'
+import apiComandas from '/src/services/apiComandas.js'
 
 let pages = [];
 let precio = 0;
@@ -9,6 +11,8 @@ loaderHtml.Get(pages);
 
 //Variables
 let carritoStorage = await carritoService.GetCarrito();
+let comandasStorage = await apiComandas.Get('2023-05-20');
+console.log(comandasStorage);
 
 //Functions
 function checkCarrito(){    
@@ -31,7 +35,6 @@ function domSettings(){
     pedidoContainer.style.display = "block";    
 
     btnConfirmar.addEventListener('click', () =>{
-        var formaChecked = document.querySelector('input[name="check-entrega"]:checked').id;
         let title = "Confirmar Pedido";
         let text = "Usted está a punto de confirmar el pedido. ¿Desea continuar?";
         showConfirmModal(title, text, confirmCarrito);
@@ -57,13 +60,39 @@ function showConfirmModal(title, text, callback){
     })
 }
 
-function confirmCarrito(){
+async function confirmCarrito(){
+    let mercaderias = [];
+    let formaEntrega = document.querySelector('input[name="check-entrega"]:checked').id;
+    carritoStorage = await carritoService.GetCarrito();
+
+    carritoStorage.map((prod) => {
+        for (let index = 0; index < prod.cantidad; index++) {
+            mercaderias.push(prod.id);        
+        }
+    });
+
+    showPopUp("Confirmación", "Pedido guardado con éxito", clearCarrito);
+    apiComandas.InsertComanda(mercaderias, formaEntrega);
+    showPopUp();
     
 }
 
 function clearCarrito(){ 
     carritoService.ClearCarrito();
     window.location.reload();
+}
+
+function showPopUp(title, text, callback){
+    const popUpContainer = document.getElementById("popUpContainer");
+    popUpContainer.innerHTML = RenderPopUp(title, text);    
+
+    const popupModal = new bootstrap.Modal(document.getElementById('popupModal'));    
+    popupModal.show();        
+    
+    const popup = document.getElementById('popupModal');        
+    popup.addEventListener('hidden.bs.modal', function (event) {
+        clearCarrito();
+    })
 }
 
 setTimeout(() => {  
