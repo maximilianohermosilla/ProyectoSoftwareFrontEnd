@@ -1,7 +1,9 @@
 import loaderHtml from '/src/services/loaderHtml.js'
 import carritoService from '/src/services/carritoService.js'
+import RenderConfirmModal from '/src/components/confirmModal.js'
 
 let pages = [];
+let precio = 0;
 pages.push({ html: '/pages/carritoDetalle.html', into: 'carrito-container'});
 loaderHtml.Get(pages);
 
@@ -11,7 +13,7 @@ let carritoStorage = await carritoService.GetCarrito();
 //Functions
 function checkCarrito(){    
     if (!carritoStorage.length > 0){
-        var carritoContainer = document.getElementById("carrito-container");
+        const carritoContainer = document.getElementById("carrito-container");                
         carritoContainer.style.display = "none";
         
         var titleEmpty = document.getElementById("title-empty");
@@ -29,18 +31,42 @@ function domSettings(){
     pedidoContainer.style.display = "block";    
 
     btnConfirmar.addEventListener('click', () =>{
-        var checked = document.querySelector('input[name="check-entrega"]:checked').id;
-        console.log(checked);
+        var formaChecked = document.querySelector('input[name="check-entrega"]:checked').id;
+        let title = "Confirmar Pedido";
+        let text = "Usted está a punto de confirmar el pedido. ¿Desea continuar?";
+        showConfirmModal(title, text, confirmCarrito);
     })    
     
-    btnCancelar.addEventListener('click', () =>{    
-        carritoService.ClearCarrito();
-        window.location.reload();
+    btnCancelar.addEventListener('click', () =>{   
+        let title = "Cancelar Pedido";
+        let text = "Usted está a punto de cancelar el pedido. ¿Desea continuar?";
+        showConfirmModal(title, text, clearCarrito);
     })
 }
 
-setTimeout(() => {    
-    //carritoService.RenderCarritoView();
+function showConfirmModal(title, text, callback){
+    const modalContainer = document.getElementById("modalContainer");
+    modalContainer.innerHTML = RenderConfirmModal(title, text);    
+    const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+    
+    confirmModal.show();
+    const confirmModalButton = document.getElementById("confirmModalButton");
+    
+    confirmModalButton.addEventListener('click', () =>{
+        callback();
+    })
+}
+
+function confirmCarrito(){
+    
+}
+
+function clearCarrito(){ 
+    carritoService.ClearCarrito();
+    window.location.reload();
+}
+
+setTimeout(() => {  
     domSettings();
     checkCarrito();    
 }, 500);

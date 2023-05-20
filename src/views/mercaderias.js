@@ -71,8 +71,11 @@ async function renderCards(){
 function renderDetalle(mercaderia){
     let detalleMercaderia = document.getElementById("modalMercaderiaBody");
     let mercaderiaTitle = document.getElementById("modalMercaderiaTitle");
+    let mercaderiaButton = document.getElementsByName("buttonAdd");
+    
     mercaderiaTitle.innerHTML = mercaderia.nombre;
     detalleMercaderia.innerHTML = RenderDetalle(mercaderia);
+    mercaderiaButton[0].id = mercaderia.id
 }
 
 function onImageItemClick(elements){
@@ -119,7 +122,7 @@ function showCarrito(){
     mercaderiasContainer.className = 'col-lg-9 col-12 row flex-center';
 
     const carritoTitulo = document.getElementById("tituloCarrito");
-    carritoTitulo.textContent = "Pedido"
+    carritoTitulo.textContent = "Detalle"
     carritoTitulo.classList = 'flex-center title div-confirmar';
 }
 

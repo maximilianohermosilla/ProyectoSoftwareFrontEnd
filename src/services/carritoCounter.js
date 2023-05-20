@@ -7,6 +7,6 @@ function renderCantidad(){
     }
 }
 
-const renderCounter = { Show: renderCantidad };
+const carritoCounter = { Show: renderCantidad };
 
-export default renderCounter;
+export default carritoCounter;

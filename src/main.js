@@ -1,5 +1,5 @@
-import renderCounter from '/src/services/renderCounter.js'
+import carritoCounter from '/src/services/carritoCounter.js'
 
 setTimeout(() => {
-    renderCounter.Show();
+    carritoCounter.Show();
 }, 500);

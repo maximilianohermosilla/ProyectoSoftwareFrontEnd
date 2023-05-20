@@ -1,5 +1,5 @@
 import RenderCarrito from '/src/components/carritoMercaderia.js'
-import renderCounter from '/src/services/renderCounter.js'
+import carritoCounter from '/src/services/carritoCounter.js'
 
 let carritoStorage = localStorage.getItem("mercaderias")? JSON.parse(localStorage.getItem("mercaderias")): [];
 
@@ -19,6 +19,7 @@ async function renderizarCarrito(){
     onButtonAddClick(document.querySelectorAll(".btnAgregarCantidad"));
     onButtonRemoveClick(document.querySelectorAll(".btnQuitarCantidad"));
     onButtonDeleteElementClick(document.querySelectorAll(".delete-icon"));
+    getPrecioTotal();
 }
 
 function onButtonAddClick(elements){
@@ -101,12 +102,21 @@ function clearProduct(id){
 
 function saveLocalStorage(carritoStorage){    
     localStorage.setItem("mercaderias", JSON.stringify(carritoStorage));    
-    renderCounter.Show();
+    carritoCounter.Show();
     renderizarCarrito();
 }
 
 function clearCarrito(){    
     localStorage.removeItem("mercaderias");    
+}
+
+function getPrecioTotal(){    
+    let precioTotal = 0;
+    carritoStorage.map((prod) => {
+        precioTotal += (prod.precio * prod.cantidad);
+    });
+    const precioElement = document.getElementById("precio-total");
+    precioElement.textContent = '$' + precioTotal;
 }
 
 setTimeout(() => {    
@@ -121,7 +131,7 @@ const carritoService = {
     AddProduct: addProduct,
     SaveProduct: saveProduct,
     RemoveProduct: removeProduct,
-    ClearProduct: clearProduct,        
+    ClearProduct: clearProduct,      
 };
 
 export default carritoService;
