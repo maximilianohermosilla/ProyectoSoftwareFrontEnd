@@ -2,7 +2,6 @@ import loaderHtml from '/src/services/loaderHtml.js'
 import carritoService from '/src/services/carritoService.js'
 import RenderConfirmModal from '/src/components/confirmModal.js'
 import RenderPopUp from '/src/components/popup.js'
-import apiComandas from '/src/services/apiComandas.js'
 
 let pages = [];
 let precio = 0;
@@ -11,8 +10,6 @@ loaderHtml.Get(pages);
 
 //Variables
 let carritoStorage = await carritoService.GetCarrito();
-let comandasStorage = await apiComandas.Get('2023-05-20');
-console.log(comandasStorage);
 
 //Functions
 function checkCarrito(){    

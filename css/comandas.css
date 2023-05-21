@@ -1,0 +1,58 @@
+.fecha{
+    max-width: 150px;
+    margin-right: 20px;
+}
+
+.comanda{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 10px;   
+    box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
+    min-height: 102px;
+    max-width: 450px;
+    height: 100%;
+    background-color: rgba(1, 4, 2, 0.3);
+}
+
+.comanda-title{
+    border-bottom: 1px solid grey;    
+}
+
+.comanda-body{
+    padding: 8px;
+}
+
+.comanda-guid{    
+    padding: 5px;
+}
+
+.card-text{
+    color: #aaa;
+}
+
+.card-fecha{    
+    width: 100px;
+    margin-right: 1px;
+}
+
+.div-body{
+    padding: 3px;
+}
+
+.div-fecha{
+    padding: 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+}
+
+.comanda-mercaderias{
+    height: 250px;
+    overflow-y: scroll;
+}
+
+.row{
+    width: +100%;
+    margin: 0px;
+}
