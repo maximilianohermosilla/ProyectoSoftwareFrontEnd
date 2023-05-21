@@ -11,8 +11,6 @@ loaderHtml.Get(pages);
 
 //Variables
 let carritoStorage = await carritoService.GetCarrito();
-let comandasStorage = await apiComandas.Get('2023-05-20');
-console.log(comandasStorage);
 
 //Functions
 function checkCarrito(){    
@@ -71,8 +69,8 @@ async function confirmCarrito(){
         }
     });
 
-    showPopUp("Confirmación", "Pedido guardado con éxito", clearCarrito);
     apiComandas.InsertComanda(mercaderias, formaEntrega);
+    showPopUp("Confirmación", "Pedido guardado con éxito", clearCarrito);
     showPopUp();
     
 }

@@ -52,3 +52,7 @@
   .card-img-top{
     height: 15rem;
   }
+
+  #cardContainer{
+    align-items: start;
+  }

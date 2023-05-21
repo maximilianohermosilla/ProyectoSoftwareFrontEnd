@@ -12,7 +12,7 @@ export default function RenderConfirmModal(title, text){
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-success" id="confirmModalButton">Confirmar</button>
+          <button type="button" class="btn btn-success" id="confirmModalButton" data-bs-dismiss="modal">Confirmar</button>
         </div>
       </div>
     </div>
