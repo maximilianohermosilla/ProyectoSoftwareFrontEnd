@@ -35,7 +35,6 @@ const getMercaderiaById = async (id) => {
 //Actions DOM
 const searchButton = document.getElementById("btnSearch");
 searchButton.addEventListener('click', () =>{
-    console.log("click")
     getMercaderias();      
 })
 
@@ -61,9 +60,16 @@ inputSearch.addEventListener("keypress", function(event) {
 async function renderCards(){
     let cardsContainer = document.getElementById("cardContainer");
     cardsContainer.innerHTML = '';
+
+    if(!listaMercaderias.length > 0){
+        cardsContainer.innerHTML =
+        `<h3 class="title bi bi-x-circle" id="title-empty"> No se encontraron resultados para la búsqueda</h3>`
+    }
+
     listaMercaderias.forEach(mercaderia =>{ 
         cardsContainer.innerHTML += RenderCard(mercaderia);
-    })    
+    })
+
     onImageItemClick(document.querySelectorAll(".card-img-top"));
     onButtonItemClick(document.querySelectorAll(".card-button"));
 }
@@ -119,7 +125,7 @@ function showCarrito(){
     pedidoContainer.style.display = "block";
     
     const mercaderiasContainer = document.getElementById("cardContainer");
-    mercaderiasContainer.className = 'col-lg-9 col-12 row flex-center';
+    mercaderiasContainer.className = 'col-xl-8 col-12 row flex-center';
 
     const carritoTitulo = document.getElementById("tituloCarrito");
     carritoTitulo.textContent = "Detalle"

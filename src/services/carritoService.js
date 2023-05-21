@@ -53,7 +53,6 @@ function addProduct(id){
 
 function saveProduct(product){
     const repeat = carritoStorage.some((repeatProduct) => repeatProduct.id === product.id);
-    //console.log(product);
     if(repeat){
         carritoStorage.map((prod) => {
             if (prod.id == product.id){
@@ -76,11 +75,9 @@ function saveProduct(product){
 function removeProduct(id){
     carritoStorage.map((prod) => {
         if(prod.cantidad == 1 && prod.id == id){
-            console.log(prod);
             clearProduct(id);
         }
         if (prod.id == id && prod.cantidad > 1){
-            console.log(prod);
             prod.cantidad--;
         }            
     });

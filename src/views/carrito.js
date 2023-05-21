@@ -2,6 +2,7 @@ import loaderHtml from '/src/services/loaderHtml.js'
 import carritoService from '/src/services/carritoService.js'
 import RenderConfirmModal from '/src/components/confirmModal.js'
 import RenderPopUp from '/src/components/popup.js'
+import apiComandas from '/src/services/apiComandas.js'
 
 let pages = [];
 let precio = 0;
@@ -68,8 +69,8 @@ async function confirmCarrito(){
         }
     });
 
-    showPopUp("Confirmación", "Pedido guardado con éxito", clearCarrito);
     apiComandas.InsertComanda(mercaderias, formaEntrega);
+    showPopUp("Confirmación", "Pedido guardado con éxito", clearCarrito);
     showPopUp();
     
 }

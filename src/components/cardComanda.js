@@ -9,14 +9,14 @@ export default function RenderComanda(comanda){
             </div>
             <div class="comanda-body flex-center comanda-title">
                 <div class="div-body">
-                    <span class="card-title card-text">${comanda.formaEntrega.descripcion}</span>
+                    <span class="card-title card-text"><strong>${comanda.formaEntrega.descripcion}</strong></span>
                 </div>
                 <div class="div-fecha">
                     <span class="card-title card-fecha card-text">${comanda.fecha.substr(0,10)}</span>     
                 </div>                
             </div>            
         </div>
-        <div class="row comanda-body comanda-title comanda-mercaderias overflow-auto" id="comandaMercaderias_${comanda.id}">
+        <div class="comanda-title comanda-mercaderias overflow-auto" id="comandaMercaderias_${comanda.id}">
         </div>
         <div class="row flex-center comanda-body ">
             <div class="carrito-precio col-lg-2 col-3 flex-center">

@@ -2,11 +2,13 @@ import apiComandas from '/src/services/apiComandas.js'
 import RenderComanda from '/src/components/cardComanda.js'
 import RenderComandaMercaderia from '/src/components/cardComandaMercaderia.js'
 
-let comandasStorage = await apiComandas.Get('2023-05-20');
-console.log(comandasStorage);
-renderComandas();
+let comandasStorage = [];
 
-flatpickr("#fechaComanda", {
+initialConfig();
+await getComandas();
+
+function initialConfig(){
+  flatpickr("#fechaComanda", {
     maxDate: "today",
     defaultDate: "today",
     locale: {
@@ -20,27 +22,56 @@ flatpickr("#fechaComanda", {
           longhand: ['Enero', 'Febreo', 'Мarzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         },
       },
-});
+  });
 
-function getDate(){
-    const fechaInput = document.getElementById("fechaComanda");
-    console.log(fechaInput.value);
+  const buttonBuscar = document.getElementById("btnBuscar");
+  buttonBuscar.addEventListener("click", async() => { await getComandas();} )
 }
 
-const buttonBuscar = document.getElementById("btnBuscar");
-buttonBuscar.addEventListener("click", () => {getDate();})
-
+async function getComandas(){
+    const fechaInput = document.getElementById("fechaComanda");
+    comandasStorage = await apiComandas.Get(fechaInput.value);    
+    renderComandas();
+}
 
 async function renderComandas(){
+    checkComandas();
     let comandasContainer = document.getElementById("comandasContainer");
     comandasContainer.innerHTML = '';
     comandasStorage.forEach(comanda =>{ 
         comandasContainer.innerHTML += RenderComanda(comanda);
 
+        let mercaderias = groupProducts(comanda.mercaderias);
         let mercaderiaContainer = document.getElementById(`comandaMercaderias_${comanda.id}`);
-        comanda.mercaderias.forEach(mercaderia =>{ 
-            mercaderiaContainer.innerHTML += RenderComandaMercaderia(mercaderia);
-        })
-    })    
-    //onImageItemClick(document.querySelectorAll(".card-img-top"));
+        
+        for (let mercaderia in mercaderias){
+          mercaderiaContainer.innerHTML += RenderComandaMercaderia(mercaderias[mercaderia]);
+        }
+    })  
+}
+
+function groupProducts(mercaderias){
+  const resultado = mercaderias.reduce((group, product) => {
+      const {id} = product;
+      group[id] = group[id] ?? [];
+      group[id].push(product);
+      return group;
+      }, {});
+  return resultado;
+}
+
+function checkComandas(){    
+  const comandasContainer = document.getElementById("comandas-empty");                
+  if (!comandasStorage.length > 0){
+    comandasContainer.style.display = "block";
+    
+    var titleEmpty = document.getElementById("title-empty");
+    if(titleEmpty){
+      titleEmpty.textContent = "  No existen comandas en la fecha seleccionada";
+      titleEmpty.className = "bi bi-calendar-x title divTituloCarrito";
+    }
+  }
+  else{
+    comandasContainer.style.display = "none";
+  }
 }
