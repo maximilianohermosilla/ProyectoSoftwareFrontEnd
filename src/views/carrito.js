@@ -6,7 +6,7 @@ import apiComandas from '/src/services/apiComandas.js'
 
 let pages = [];
 let precio = 0;
-pages.push({ html: '/pages/carritoDetalle.html', into: 'carrito-container'});
+pages.push({ html: '/pages/components/carritoDetalle.html', into: 'carrito-container'});
 loaderHtml.Get(pages);
 
 //Variables

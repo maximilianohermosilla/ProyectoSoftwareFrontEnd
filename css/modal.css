@@ -2,10 +2,6 @@
     height: 100%;
 }
 
-.confirm-dialog{
-    max-height: 20%;
-}
-
 #modalMercaderiaBody{
     height: 90%;
     padding: 2rem;
@@ -54,4 +50,4 @@
     .bi{
       margin: 0px;
     }
-  }
+}

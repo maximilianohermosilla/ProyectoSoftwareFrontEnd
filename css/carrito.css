@@ -87,11 +87,6 @@ label{
 
 
 @media screen and (max-width: 480px){    
-    #main-container{
-      padding: 0px;
-      width: 100%;
-    }
-
     .img-carrito{
         height: 70%;
     }

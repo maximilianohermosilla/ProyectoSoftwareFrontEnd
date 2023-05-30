@@ -5,8 +5,8 @@ import RenderDetalle from '/src/components/detalleMercaderia.js'
 import carritoService from '/src/services/carritoService.js'
 
 let pages = [];
-pages.push({ html: '/pages/modalMercaderiaDetalle.html', into: 'modalContainer'});
-pages.push({ html: '/pages/carritoDetalle.html', into: 'carrito-container'});
+pages.push({ html: '/pages/components/modalMercaderiaDetalle.html', into: 'modalContainer'});
+pages.push({ html: '/pages/components/carritoDetalle.html', into: 'carrito-container'});
 loaderHtml.Get(pages);
 
 //Variables
@@ -86,9 +86,13 @@ function renderDetalle(mercaderia){
 
 function onImageItemClick(elements){
     elements.forEach((element) => {
-        element.addEventListener('click', () =>{
+        element.addEventListener('click', () =>{            
             getMercaderiaById(element.id);
-        })
+        });
+
+        element.addEventListener('error', () =>{
+            element.src = '../images/notfound.png';
+        });
     });
 }
 

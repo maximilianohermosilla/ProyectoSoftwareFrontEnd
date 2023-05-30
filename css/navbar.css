@@ -1,123 +1,122 @@
-
 #navbar{
-    box-shadow: 0px 2px 8px rgba(51, 246, 96, 0.5);   
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    z-index: 999;
-    width: 100%;
-  }
+  box-shadow: 0px 2px 8px rgba(51, 246, 96, 0.5);   
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+}
 
-  .tooltip-navbar{
-    position: relative;
-    display: inline-block;    
-  }
-  .tooltip-navbar .toolttext-navbar {
-    visibility: hidden;
-    width: 100px;
-    font-size: 12px;
-    background-color: #65cd23;
-    opacity: 0.6;
-    color: #000000;
-    text-align: center;
-    border-radius: 4px;
-    padding: 8px ;
+.tooltip-navbar{
+  position: relative;
+  display: inline-block;    
+}
+.tooltip-navbar .toolttext-navbar {
+  visibility: hidden;
+  width: 100px;
+  font-size: 12px;
+  background-color: #65cd23;
+  opacity: 0.6;
+  color: #000000;
+  text-align: center;
+  border-radius: 4px;
+  padding: 8px ;
 
-    position: absolute;
-    z-index: 0;
-    top: 120%;
-  }
-  .tooltip-navbar:hover .toolttext-navbar {
-    visibility: visible;
-  }
-  
-  .sidenav {
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
-    padding-left: -10px;
-  }
-  
-  .sidenav a {
-    padding: 6px 6px 30px 20px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #65cd23;
-    display: block;
-  }
+  position: absolute;
+  z-index: 0;
+  top: 120%;
+}
+.tooltip-navbar:hover .toolttext-navbar {
+  visibility: visible;
+}
 
-  .nav-item{
-    line-height: 40px;
-  }
+.sidenav {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-left: -10px;
+}
 
-  .sidenavIcon i{
-    margin-right: 5px;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
+.sidenav a {
+  padding: 6px 6px 30px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #65cd23;
+  display: block;
+}
 
-  #navbar-toggler{
-    margin: 0px!important;
-  }
+.nav-item{
+  line-height: 40px;
+}
 
-  
+.sidenavIcon i{
+  margin-right: 5px;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+#navbar-toggler{
+  margin: 0px!important;
+}
+
+
+.sidenavIcon{
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #65cd23;
+  display: block;
+}
+
+.sidenavIcon:hover{    
+  color: green;
+}
+
+.navIcon{
+  font-size: 32px;
+}
+
+.navbar-brand{
+  color:white!important;
+}
+
+
+.cantidad-tooltip{
+  display: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: crimson;
+  color: white;
+  font-size: 12px;
+  opacity: 0.7;
+  margin-left: -5px;
+  margin-top: 20px;
+}
+
+
+@media screen and (max-width: 480px){    
   .sidenavIcon{
-    margin-left: 20px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #65cd23;
-    display: block;
+    margin-left: 0px;
   }
 
-  .sidenavIcon:hover{    
-    color: green;
+  .bi{
+    margin: 0px;
   }
 
-  .navIcon{
-    font-size: 32px;
+  #navbarSupportedContent{
+    border-top: 1px solid #333333;
+    margin-top: 5px;
   }
 
-  .navbar-brand{
-    color:white!important;
+  .tooltip-navbar:hover .toolttext-navbar {
+    visibility: hidden;
   }
-
-  
-  .cantidad-tooltip{
-    display: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: crimson;
-    color: white;
-    font-size: 12px;
-    opacity: 0.7;
-    margin-left: -5px;
-    margin-top: 20px;
-  }
-
-  
-  @media screen and (max-width: 480px){    
-    .sidenavIcon{
-      margin-left: 0px;
-    }
-
-    .bi{
-      margin: 0px;
-    }
-
-    #navbarSupportedContent{
-      border-top: 1px solid #333333;
-      margin-top: 5px;
-    }
-
-    .tooltip-navbar:hover .toolttext-navbar {
-      visibility: hidden;
-    }
-  }
+}

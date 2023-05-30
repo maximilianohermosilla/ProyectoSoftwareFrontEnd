@@ -2,7 +2,7 @@ export default function RenderDetalle(mercaderia){
     return `
     <div class="row mercaderia-detalle">
         <div class="col-xs-12 col-sm-8">
-            <img id="${mercaderia.id}" src="${mercaderia.imagen}" class="mercaderia-imagen" alt="..." data-bs-toggle="modal" data-bs-target="#modalMercaderia">
+            <img id="${mercaderia.id}" src="${mercaderia.imagen}" class="mercaderia-imagen" alt="..." data-bs-toggle="modal" data-bs-target="#modalMercaderia" onerror="this.src='../images/notfound.png'">
         </div>
         <div id="detalle-body" class="col-xs-12 col-sm-4">
             <h1 disabled class="detalle-nombre">${mercaderia.nombre}</h1>
