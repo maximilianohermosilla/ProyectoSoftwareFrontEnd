@@ -5,7 +5,16 @@
 #modalMercaderiaBody{
     height: 90%;
     padding: 2rem;
+    /* background: -webkit-linear-gradient(90deg , #fff6b8,#d5ffb3);  */
 }
+
+/* .modal-header, .modal-footer{
+    background: -webkit-linear-gradient(270deg , #fff6b8,#d5ffb3); 
+}
+
+.modal-body{
+    background: -webkit-linear-gradient(90deg , #fff6b8,#d5ffb3); 
+} */
 
 .mercaderia-imagen{
     width: 100%;

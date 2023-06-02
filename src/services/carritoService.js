@@ -48,15 +48,16 @@ function onButtonDeleteElementClick(elements){
 
 function addProduct(id){ 
     const product = carritoStorage.find((element) => id == element.id);
-    saveProduct(product);
+    saveProduct(product, 1);
 }
 
-function saveProduct(product){
+function saveProduct(product, cantidad){
     const repeat = carritoStorage.some((repeatProduct) => repeatProduct.id === product.id);
+    console.log(carritoStorage);
     if(repeat){
         carritoStorage.map((prod) => {
             if (prod.id == product.id){
-                prod.cantidad++;
+                prod.cantidad += cantidad;
             }            
         });
     } else{
@@ -66,7 +67,7 @@ function saveProduct(product){
             nombre: product.nombre,
             descripcion: product.tipo.descripcion,
             precio: product.precio,
-            cantidad: 1
+            cantidad: cantidad
         });
     }
     saveLocalStorage(carritoStorage);    

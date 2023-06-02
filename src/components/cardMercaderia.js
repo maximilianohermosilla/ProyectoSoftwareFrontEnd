@@ -8,7 +8,7 @@ export default function RenderCard(mercaderia){
             <span class="card-text">$${mercaderia.precio}</span>
             <div>
                 <div class="flex-end">                    
-                    <select id="select-cantidad" class="select-cantidad" aria-label="select-cantidad">
+                    <select id="select-cantidad_${mercaderia.id}" class="select-cantidad" aria-label="select-cantidad">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

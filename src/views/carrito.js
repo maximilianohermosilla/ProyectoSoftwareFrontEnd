@@ -46,7 +46,7 @@ function domSettings(){
 }
 
 function showConfirmModal(title, text, callback){
-    const modalContainer = document.getElementById("modalContainer");
+    const modalContainer = document.getElementById("modalConfirmContainer");
     modalContainer.innerHTML = RenderConfirmModal(title, text);    
     const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
     

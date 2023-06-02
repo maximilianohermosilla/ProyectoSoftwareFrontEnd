@@ -62,7 +62,8 @@
 }
 
 .carrito-precio{
-    padding-right: 0px;
+    padding-right: 0px;    
+    min-width: 50px;
 }
 
 .check-forma{   
@@ -87,6 +88,10 @@ label{
 
 
 @media screen and (max-width: 480px){    
+    .carrito{
+        margin: 5px 1px;
+    }
+
     .img-carrito{
         height: 70%;
     }

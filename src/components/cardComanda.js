@@ -2,26 +2,26 @@ export default function RenderComanda(comanda){
     return `
     <div class="comanda">        
         <div class="row">
-            <div class="div-body flex-center comanda-title">
-                <h6 class="comanda-guid card-text">
-                    <span class="title">Comanda: ${comanda.id}</span>
-                </h6>
+            <div class="div-body flex-center comanda-body comanda-title">
+                <h5 class="comanda-guid">
+                    <span class="">Comanda: ${comanda.id}</span>
+                </h5>
             </div>
-            <div class="comanda-body flex-center comanda-title">
+            <div class="comanda-body flex-center subtitle">
                 <div class="div-body">
-                    <span class="card-title card-text"><strong>${comanda.formaEntrega.descripcion}</strong></span>
+                    <h5 class=""><strong>${comanda.formaEntrega.descripcion}</strong></h5>
                 </div>
                 <div class="div-fecha">
-                    <span class="card-title card-fecha card-text">${comanda.fecha.substr(0,10)}</span>     
+                    <h5 class="card-fecha">${comanda.fecha.substr(0,10)}</h5>     
                 </div>                
             </div>            
         </div>
-        <div class="comanda-title comanda-mercaderias overflow-auto" id="comandaMercaderias_${comanda.id}">
+        <div class="comanda-body comanda-mercaderias overflow-auto" id="comandaMercaderias_${comanda.id}">
         </div>
-        <div class="row flex-center comanda-body ">
-            <div class="carrito-precio col-lg-2 col-3 flex-center">
-            <span class="card-title card-fecha card-text">Total: </span>      
-                <span class="span-precio">$${comanda.total}</span>
+        <div class="row flex-center comanda-title ">
+            <div class="precio col-lg-2 col-3 flex-center">
+             <span class="card-fecha">Total: </span>      
+             <span class="">$${comanda.total}</span>
             </div>
         </div>
     </div>

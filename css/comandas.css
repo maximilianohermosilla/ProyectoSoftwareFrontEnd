@@ -3,37 +3,48 @@
     margin-right: 20px;
 }
 
-.comanda{
-    margin: 5px;
+.comandasContainer{
     padding: 5px;
+}
+
+.comanda{
+    font-family: 'Caveat';font-size: 29px;
+    margin: 5px;
+    padding: 15px 15px 70px 15px;
     border: 1px solid grey;
     border-radius: 10px;   
     box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
     min-height: 102px;
     max-width: 450px;
     height: 100%;
-    background-color: rgba(0, 205, 68, 0.3);
+    background: url('/images/comanda.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .comanda-title{
-    border-bottom: 1px solid grey;    
+    text-shadow: 3px 3px 4px #999999;  
 }
 
 .comanda-body{
+    border-bottom: 1px solid grey;  
     padding: 8px;
 }
 
 .comanda-guid{    
     padding: 5px;
+    color: black!important;
+    font-weight: bolder;
 }
 
 .card-text{
-    color: #aaa;
+    color: #aaa;    
 }
 
 .card-fecha{    
     width: 100px;
-    margin-right: 1px;
+    margin-right: 1px;   
+    font-weight: bolder; 
 }
 
 .div-body{
@@ -49,11 +60,29 @@
 
 .comanda-mercaderias{
     padding-top: 20px;
-    height: 250px;
-    overflow-y: scroll;
+    height: 255px;
+    overflow-y: scroll;    
 }
 
 .row{
     width: +100%;
     margin: 0px;
+}
+
+.subtitle{
+    color: #555555;
+}
+
+.precio{
+    padding-top: 15px;
+}
+
+@media screen and (max-width: 480px){   
+    .comanda-guid{   
+        font-size: 1rem;
+    }
+
+    .fecha{
+        margin-right: 2px;
+    }
 }

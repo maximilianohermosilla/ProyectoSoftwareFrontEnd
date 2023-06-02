@@ -1,6 +1,6 @@
 export default function RenderConfirmModal(title, text){
     return `
-    <div class="modal fade in" id="confirmModal" role="dialog" tabindex="-1" aria-labelledby="confirmModalTitle" data-show="true">
+    <div class="modal fade in" id="confirmModal" role="dialog" tabindex="-1" aria-labelledby="confirmModalTitle">
     <div class="modal-dialog">
       <div class="modal-content confirm-dialog">
         <div class="modal-header">
@@ -18,7 +18,7 @@ export default function RenderConfirmModal(title, text){
     </div>
   </div>  
   <div class="container-fluid" id="popUpContainer">
-            <!-- popup.js -->
+    <!-- popup.js -->
   </div> 
     `;
 }

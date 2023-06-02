@@ -89,9 +89,9 @@ body {
 .divTituloCarrito{
   border: 1px solid grey;
   border-radius: 10px;
-  margin: 0px; 
   padding: 15px 5px; 
   box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
+  margin: 1px;
 }
 
 .divTituloCarrito>div{
@@ -102,6 +102,13 @@ body {
 #carrito-container{
   display: none;
   margin-top: 10px;
+}
+
+.carrito-cantidad{
+  display: flex;
+  justify-content: end;
+  padding: 0;
+  cursor: pointer;
 }
 
 
@@ -115,7 +122,13 @@ body {
   }
 }
 
-@media screen and (max-width: 480px){   
+@media screen and (max-width: 480px){  
+  #carrito-container{
+    padding: 0;
+  }   
+  .divTituloCarrito{
+    margin: 0;
+  }
   .bi{
     margin: 0px;
   }    

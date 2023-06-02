@@ -77,11 +77,13 @@ async function renderCards(){
 function renderDetalle(mercaderia){
     let detalleMercaderia = document.getElementById("modalMercaderiaBody");
     let mercaderiaTitle = document.getElementById("modalMercaderiaTitle");
-    let mercaderiaButton = document.getElementsByName("buttonAdd");
-    
+    // let mercaderiaButton = document.getElementsByName("buttonAdd");
+    //let elementCantidad = document.getElementById("select-cantidad"); 
+    //elementCantidad.id = "select-cantidad-modal_" + mercaderia.id;
+
+    // mercaderiaButton[0].id = mercaderia.id
     mercaderiaTitle.innerHTML = mercaderia.nombre;
     detalleMercaderia.innerHTML = RenderDetalle(mercaderia);
-    mercaderiaButton[0].id = mercaderia.id
 }
 
 function onImageItemClick(elements){
@@ -105,8 +107,11 @@ function onButtonItemClick(elements){
 }
 
 function agregarProducto(id){
-    const product = listaMercaderias.find((element) => id == element.id);
-    carritoService.SaveProduct(product);
+    const product = listaMercaderias.find((element) => id == element.id);   
+    let elementCantidad = document.getElementById("select-cantidad_"+id); 
+    let cantidad = parseInt(elementCantidad.options[elementCantidad.selectedIndex].value);
+    
+    carritoService.SaveProduct(product, cantidad);
     showCarrito();
 }
 
@@ -136,6 +141,20 @@ function showCarrito(){
     carritoTitulo.classList = 'flex-center title div-confirmar';
 }
 
+function get_params_from_href(){
+    var href = window.location.href;
+    var paramstr = href.split('?')[1];
+    if (paramstr != undefined && paramstr > 0 && paramstr < 11){
+        selectCategoria.value = paramstr;               
+    }
+    // if (paramstr != undefined && paramstr.split('=')[1] > 0 && paramstr.split('=')[1] < 11){
+    //     selectCategoria.value = paramstr.split('=')[1];               
+    // }
+  }
+
 //onload
-getMercaderias();
+get_params_from_href();
 checkCarrito();
+setTimeout(() => {
+    getMercaderias();
+}, 500); 
