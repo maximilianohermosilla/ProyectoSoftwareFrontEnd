@@ -1,19 +1,10 @@
-.carrito{
-    margin: 5px;
-    padding: 3px;
-    border: 1px solid grey;
-    border-radius: 10px;   
-    box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
-    min-height: 102px;
-}
-
 .carrito-img{
-    padding: 0px;
-    
+    padding: 0px;    
 }
 
 .img-carrito{
-    width: 100%;    
+    width: 90%;    
+    height: 90%;
     max-height: 100px;
     border-radius: 10px;
 }
@@ -58,7 +49,8 @@
 }
 
 .form-check{
-    padding: 0 20%;
+    padding: 10px;
+    margin: 5px;
 }
 
 .carrito-precio{
@@ -67,12 +59,20 @@
 }
 
 .check-forma{   
+    padding: 10px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2;
 }
 
 label{
     font-size: 1.3rem;
-    margin-left: 10px;
+}
+
+.form-check-label{
+    font-size: 0.7rem;
 }
 
 .divButton{
@@ -86,14 +86,58 @@ label{
     margin: 10px;
 }
 
+.carrito{
+    margin: 5px;
+    padding: 3px;
+    border: 1px solid grey;
+    border-radius: 10px;   
+    box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
+    min-height: 80px;
+    background: -webkit-linear-gradient(270deg , #315d5f,#538243);  
+}
+
+#div-confirmar{
+    border: 1px solid grey;
+    height: 100%;
+    border-radius: 10px;
+    margin: 5px; 
+    box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);  
+    background: -webkit-linear-gradient(270deg , #315d5f,#538243);  
+}
+  
+.divTituloCarrito{
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 15px 5px; 
+    box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
+    background: -webkit-linear-gradient(90deg , #262626,#3a3a3a);    
+}
+  
+.divTituloCarrito>div{
+    padding: 0px;
+    margin: 0px;
+}
+  
+#carrito-container{
+    display: none;
+    margin-top: 10px;
+}
+  
+.carrito-cantidad{
+    display: flex;
+    justify-content: end;
+    padding: 0;
+    cursor: pointer;
+}  
+
+.forma-img{
+    width: 50px;
+    height: 50px;
+}
 
 @media screen and (max-width: 480px){    
     .carrito{
         margin: 5px 1px;
-    }
-
-    .img-carrito{
-        height: 70%;
     }
 
     .card-title{
@@ -102,5 +146,10 @@ label{
 
     .card-text{
         font-size: 0.75rem;
+    }
+
+    .img-carrito{
+        width: 100%;    
+        height: 100%;
     }
 }

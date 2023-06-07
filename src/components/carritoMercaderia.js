@@ -2,7 +2,7 @@ export default function RenderCarrito(mercaderia){
     return `
     <div class="row carrito">
         <div class="carrito-img col-2 flex-center">
-            <img id="${mercaderia.id}" src="${mercaderia.imagen}" class="img-carrito">
+            <img id="${mercaderia.id}" src="${mercaderia.imagen}" class="img-carrito" onerror="this.src='../images/notfound.png'">
         </div>
         <div class="carrito-body col-lg-5 col-4 flex-center">
             <div class="div-body">

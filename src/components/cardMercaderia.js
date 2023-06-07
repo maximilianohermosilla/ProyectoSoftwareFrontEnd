@@ -5,7 +5,7 @@ export default function RenderCard(mercaderia){
         <div class="card-body">
             <h5 class="card-title">${mercaderia.nombre}</h5>
             <p class="card-text">${mercaderia.tipo.descripcion}</p>
-            <span class="card-text">$${mercaderia.precio}</span>
+            <span class="card-text precio">$${mercaderia.precio}</span>
             <div>
                 <div class="flex-end">                    
                     <select id="select-cantidad_${mercaderia.id}" class="select-cantidad" aria-label="select-cantidad">

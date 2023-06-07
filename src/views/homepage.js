@@ -2,6 +2,7 @@ import loaderHtml from '/src/services/loaderHtml.js'
 
 let pages = [];
 pages.push({ html: '/pages/components/categorias.html', into: 'categoriasContainer'});
+pages.push({ html: '/pages/components/homepage.html', into: 'homepageContainer'});
 loaderHtml.Get(pages);
 
 const loadMercaderias = async (id) => {  

@@ -28,7 +28,9 @@
   border-radius: 5px;
 }
 
-
+.precio{
+  color: orange!important;
+}
 
 /* Important part */
 .modal-dialog{

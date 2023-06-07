@@ -38,7 +38,8 @@
 }
 
 .card-text{
-    color: #aaa;    
+    color: #aaa;  
+    font-size: 1.3rem;  
 }
 
 .card-fecha{    
