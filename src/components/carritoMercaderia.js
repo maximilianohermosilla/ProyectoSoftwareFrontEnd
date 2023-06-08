@@ -7,7 +7,7 @@ export default function RenderCarrito(mercaderia){
         <div class="carrito-body col-lg-5 col-4 flex-center">
             <div class="div-body">
                 <h5 class="card-title">${mercaderia.nombre}
-                <h6 class="card-text">${mercaderia.descripcion}</h6>
+                <h6 class="card-description">${mercaderia.descripcion}</h6>
             </div>
         </div>
         <div class="carrito-cantidad col-2 flex-center">

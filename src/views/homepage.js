@@ -16,6 +16,22 @@ function onImageItemClick(elements){
         });
     });
 }
+
+const productosDiv = document.getElementById("productos-div");
+productosDiv.addEventListener('click', () =>{
+    location.href = '/pages/mercaderias.html';    
+})
+
+const comandasDiv = document.getElementById("comandas-div");
+comandasDiv.addEventListener('click', () =>{
+    location.href = '/pages/comandas.html';    
+})
+
+const pedidoDiv = document.getElementById("pedido-div");
+pedidoDiv.addEventListener('click', () =>{
+    location.href = '/pages/carrito.html';    
+})
+
 setTimeout(() => {
-    onImageItemClick(document.querySelectorAll(".categoria-container"));    
+    onImageItemClick(document.querySelectorAll(".categoria-container"));        
 }, 500);

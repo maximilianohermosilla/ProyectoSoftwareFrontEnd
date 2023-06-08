@@ -2,6 +2,10 @@
     padding: 0px;    
 }
 
+.border{
+    background: -webkit-linear-gradient(90deg , #262626,#3a3a3a)
+}
+
 .img-carrito{
     width: 90%;    
     height: 90%;
@@ -11,6 +15,17 @@
 
 .div-body{
     width: 100%;
+}
+
+.card-description{
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.title{    
+    text-shadow: 2px 2px 3px #000000;
+    margin-bottom: 0px;
 }
 
 .card-text{
@@ -93,7 +108,8 @@ label{
     border-radius: 10px;   
     box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
     min-height: 80px;
-    background: -webkit-linear-gradient(270deg , #315d5f,#538243);  
+    /* background: -webkit-linear-gradient(270deg , #315d5f,#538243);   */
+    background: -webkit-linear-gradient(270deg , #555555,#AAAAAA);  
 }
 
 #div-confirmar{
@@ -102,7 +118,8 @@ label{
     border-radius: 10px;
     margin: 5px; 
     box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);  
-    background: -webkit-linear-gradient(270deg , #315d5f,#538243);  
+    background: -webkit-linear-gradient(270deg , #555555,#CCCCCC);  
+    /* background: -webkit-linear-gradient(270deg , #315d5f,#538243);   */
 }
   
 .divTituloCarrito{
@@ -144,7 +161,7 @@ label{
         font-size: 1rem;
     }
 
-    .card-text{
+    .card-text, .card-description{
         font-size: 0.75rem;
     }
 

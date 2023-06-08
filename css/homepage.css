@@ -31,12 +31,26 @@ section{
   text-align: center;
   color: white;
   width: 18%;
-  box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
+  box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.7);
 }
 
 .card-menu{
   padding: 10px;
   height: 100%;
+  cursor: pointer;
+}
+
+.card-menu:hover{
+  opacity: 0.7;  
+}
+
+.card-menu:hover .icon-block{
+  background-color: rgba(0, 165, 132, 0.5);
+}
+
+.card-menu:hover .light{
+  background-color: rgba(0, 0, 0, 0.6);
+  border-bottom: 5px solid rgba(0, 165, 132, 0.5);
 }
 
 .icon-block{
@@ -47,7 +61,8 @@ section{
 }
 
 .light{  
-  background-color: rgba(255,255,255,0.7);  
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
   margin-bottom: 1px;
   padding: 10px;
   height: 100%;
@@ -79,7 +94,7 @@ section{
 
 .categoria-img{
   width: 100%;
-  opacity: 0.3;
+  opacity: 0.8;
   height: 180px;
   z-index: 100;
 }
@@ -90,7 +105,7 @@ section{
 }
 
 .categoria-img:hover{
-  opacity: 0.7;
+  opacity: 0.4;
   cursor: pointer;
 }
 
@@ -129,7 +144,10 @@ section{
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 40px;
-  z-index: -1;
+}
+
+.categoria-container:hover .centered{
+  z-index: -1; 
 }
 
 .banner-centered{
