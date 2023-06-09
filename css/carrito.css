@@ -102,13 +102,12 @@ label{
 }
 
 .carrito{
-    margin: 5px;
+    margin: 10px 5px;
     padding: 3px;
     border: 1px solid grey;
     border-radius: 10px;   
     box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
-    min-height: 80px;
-    /* background: -webkit-linear-gradient(270deg , #315d5f,#538243);   */
+    min-height: 100px;
     background: -webkit-linear-gradient(270deg , #555555,#AAAAAA);  
 }
 
@@ -119,7 +118,6 @@ label{
     margin: 5px; 
     box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);  
     background: -webkit-linear-gradient(270deg , #555555,#CCCCCC);  
-    /* background: -webkit-linear-gradient(270deg , #315d5f,#538243);   */
 }
   
 .divTituloCarrito{

@@ -70,9 +70,7 @@ async function confirmCarrito(){
     });
 
     apiComandas.InsertComanda(mercaderias, formaEntrega);
-    showPopUp("Confirmación", "Pedido guardado con éxito", clearCarrito);
-    showPopUp();
-    
+    showPopUp("Confirmación", "Pedido guardado con éxito", clearCarrito);  
 }
 
 function clearCarrito(){ 

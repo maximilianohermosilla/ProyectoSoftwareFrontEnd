@@ -3,6 +3,7 @@ import apiMercaderias from '/src/services/apiMercaderias.js'
 import RenderCard from '/src/components/cardMercaderia.js'
 import RenderDetalle from '/src/components/detalleMercaderia.js'
 import carritoService from '/src/services/carritoService.js'
+import spinnerService from '/src/services/spinnerService.js'
 
 let pages = [];
 pages.push({ html: '/pages/components/modalMercaderiaDetalle.html', into: 'modalContainer'});
@@ -18,12 +19,14 @@ let listaMercaderias = [];
 let carritoStorage = await carritoService.GetCarrito();
 
 //Consts
-const getMercaderias = async () => {
+const getMercaderias = async () => {    
+    spinnerService.Show();
     let tipo = elementTipo.options[elementTipo.selectedIndex].value;
     let orden = elementOrden.options[elementOrden.selectedIndex].value;
     let nombre = elementNombre.value;
     tipo = tipo == '0'? '': tipo;
     listaMercaderias = await apiMercaderias.Get(tipo, nombre, orden);
+    spinnerService.Hide();
     await renderCards();
 }
 

@@ -1,6 +1,7 @@
 import apiComandas from '/src/services/apiComandas.js'
 import RenderComanda from '/src/components/cardComanda.js'
 import RenderComandaMercaderia from '/src/components/cardComandaMercaderia.js'
+import spinnerService from '/src/services/spinnerService.js'
 
 let comandasStorage = [];
 
@@ -29,8 +30,10 @@ function initialConfig(){
 }
 
 async function getComandas(){
+    spinnerService.Show();
     const fechaInput = document.getElementById("fechaComanda");
     comandasStorage = await apiComandas.Get(fechaInput.value);    
+    spinnerService.Hide();
     renderComandas();
 }
 

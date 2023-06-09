@@ -45,12 +45,12 @@ section{
 }
 
 .card-menu:hover .icon-block{
-  background-color: rgba(0, 165, 132, 0.5);
+  background-color: #005333;
 }
 
 .card-menu:hover .light{
   background-color: rgba(0, 0, 0, 0.6);
-  border-bottom: 5px solid rgba(0, 165, 132, 0.5);
+  border-bottom: 5px solid #005333
 }
 
 .icon-block{
@@ -109,35 +109,30 @@ section{
   cursor: pointer;
 }
 
-/* Bottom left text */
 .bottom-left {
   position: absolute;
   bottom: 8px;
   left: 16px;
 }
 
-/* Top left text */
 .top-left {
   position: absolute;
   top: 8px;
   left: 16px;
 }
 
-/* Top right text */
 .top-right {
   position: absolute;
   top: 8px;
   right: 16px;
 }
 
-/* Bottom right text */
 .bottom-right {
   position: absolute;
   bottom: 8px;
   right: 16px;
 }
 
-/* Centered text */
 .centered {
   position: absolute;
   top: 50%;
@@ -156,6 +151,23 @@ section{
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 6rem;
+}
+.info-container li{
+  padding: 3px;
+  margin: 3px;
+}
+
+.info-list-container a{
+  text-decoration: none;  
+  font-size: 1.2rem;
+  color: #999999;
+  padding: 3px 6px;  
+}
+
+.info-list-container a:hover{
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 
