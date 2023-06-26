@@ -1,16 +1,20 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Lato", sans-serif!important;
+  font-family: "Lato", sans-serif;
   background: -webkit-linear-gradient(180deg , #5d5d5d,#3c3c3c);
   height: 100%;
   margin-top: 54px;
   margin-bottom: 60px;
 }
 
+.row{
+  width: 100%;
+}
+
 .btn{
   box-shadow: 0px 2px 8px rgba(1, 4, 2, 0.5);
-  border-radius: 3px!important;
+  border-radius: 3px;
 }
 
 .bi{
@@ -19,6 +23,10 @@ body {
 
 .spacer {
   width: 2rem;
+}
+
+.title-container{
+  background: -webkit-linear-gradient(90deg , #1a1a1a,#3c3c3c);
 }
 
 .text-center{
@@ -46,18 +54,16 @@ body {
 }
 
 #title{
-  background: -webkit-linear-gradient(45deg , #000000,#444444);    
-  color: white!important;
+  color: white;
   text-shadow: 3px 3px 4px black;
   margin: 34px 0px 20px 0px;
   border-radius: 5px;
   padding: 10px;
   text-align: center;
-  box-shadow: 2px 3px 5px rgba(19, 255, 98, 0.3);
 }
 
 .title{
-  color: white!important;
+  color: white;
   text-shadow: 3px 3px 4px black;
   border-radius: 5px;
   padding: 10px;
@@ -65,9 +71,9 @@ body {
 }
 
 .icon-list{
-  display: flex!important;
+  display: flex;
   justify-content: center;
-  flex-direction: row!important;
+  flex-direction: row;
 }
   
 .modal-dialog{
@@ -84,9 +90,10 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #1c1c1c;
   color: white;
   text-align: center;
+  z-index: 999;
 }
 
 @media screen and (max-height: 450px) {
@@ -118,4 +125,5 @@ body {
   .row{
     width: 100%;
   }
+
 }

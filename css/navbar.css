@@ -14,7 +14,7 @@
   color: white;
   margin-right: 30px;
   box-shadow: 0px 2px 8px rgba(51, 246, 96, 0.5); 
-  color: #dddddd!important;  
+  color: #dddddd;  
   text-shadow: 1px 1px 2px rgba(51, 246, 96, 0.5); ;
 }
 
@@ -23,7 +23,6 @@
 }
 
 .tooltip-navbar{
-  position: relative;
   display: inline-block;    
 }
 .tooltip-navbar .toolttext-navbar {
@@ -36,8 +35,6 @@
   text-align: center;
   border-radius: 4px;
   padding: 8px ;
-
-  position: absolute;
   z-index: 0;
   top: 120%;
 }
@@ -78,7 +75,7 @@
 }
 
 #navbar-toggler{
-  margin: 0px!important;
+  margin: 0px;
 }
 
 
@@ -99,7 +96,7 @@
 }
 
 .navbar-brand{
-  color:white!important;
+  color:white;
 }
 
 
@@ -112,8 +109,8 @@
   color: white;
   font-size: 12px;
   opacity: 0.7;
-  margin-left: -5px;
-  margin-top: 20px;
+  margin-left: 90px;
+  margin-top: -25px;
 }
 
 

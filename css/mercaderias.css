@@ -29,11 +29,11 @@
 }
 
 .precio{
-  color: orange!important;
+  color: orange;
 }
 
 .modal-dialog{
-  overflow-y: initial !important
+  overflow-y: initial;
 }
 .modal-body{
   

@@ -2,6 +2,11 @@
     height: 100%;
 }
 
+.modal-header, .modal-body, .modal-footer{
+    background: -webkit-linear-gradient(180deg , #5d5d5d,#3c3c3c);
+    color: white;   
+}
+
 #modalMercaderiaBody{
     height: 90%;
     padding: 2rem;
@@ -14,21 +19,20 @@
 }
 
 .detalle-categoria{
-    color: #6f6f6f;
+    color: #bebebe;
 }
 
 .detalle-precio{
-    cursor: default!important;
-    font-size: 30px!important;
-    color: white!important;
+    width: 100%;
+    text-align: center;
+    color: yellow;
     text-shadow: 3px 3px 4px black;
-    width: 93%;
-    padding: 1px;
+    padding: 0.5rem;
     margin-bottom: 10px;
 }
 
 .detalle-nombre{
-    background: -webkit-linear-gradient(180deg , #7e7e7e,#3c3c3c);    
+    /* background: -webkit-linear-gradient(180deg , #7e7e7e,#3c3c3c);     */
     border-radius: 5px;
     color: white;
     text-shadow: 3px 3px 4px black;        

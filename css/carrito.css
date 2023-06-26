@@ -2,9 +2,14 @@
     padding: 0px;    
 }
 
-.border{
-    background: -webkit-linear-gradient(90deg , #262626,#3a3a3a)
+.precio-total{
+    text-shadow: 2px 2px 3px #000000;
 }
+
+hr{
+    color: white;
+}
+
 
 .img-carrito{
     width: 90%;    
@@ -28,12 +33,12 @@
     margin-bottom: 0px;
 }
 
-.card-text{
-    color: #8c8c8c;
+.green{
+    color: green;
 }
 
 .row>.carrito {
-    padding: 0px!important;
+    padding: 0px;
 }
 
 .span-cantidad{
@@ -56,9 +61,11 @@
 }
 
 .span-precio{
+    text-align: center;
     width: 100%;
     font-size: 1rem;
-    color: white!important;
+    font-weight: 600;
+    color: orange;
     text-shadow: 2px 2px 3px #1b1b1b;
     padding: 0px;
 }
@@ -91,37 +98,35 @@ label{
 }
 
 .divButton{
-    flex-direction: column;
+    flex-direction: row;
     padding: 3vh 0;
 }
 
 .divButton>button{
     padding: 10px;
-    width: 90%;
+    width: 40%;
     margin: 10px;
 }
 
 .carrito{
     margin: 10px 5px;
     padding: 3px;
-    border: 1px solid grey;
-    border-radius: 10px;   
-    box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
+    border-bottom: 1px solid grey;
     min-height: 100px;
-    background: -webkit-linear-gradient(270deg , #555555,#AAAAAA);  
+    box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
+    border-radius: 10px;
+    border: 1px solid #5f5f5f;
 }
 
 #div-confirmar{
-    border: 1px solid grey;
     height: 100%;
     border-radius: 10px;
+    border: 1px solid #5f5f5f;
     margin: 5px; 
-    box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);  
-    background: -webkit-linear-gradient(270deg , #555555,#CCCCCC);  
+    box-shadow: 1px 5px 8px rgba(1, 4, 2, 0.5);  
 }
   
 .divTituloCarrito{
-    border: 1px solid grey;
     border-radius: 10px;
     padding: 15px 5px; 
     box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
@@ -129,7 +134,7 @@ label{
 }
   
 .divTituloCarrito>div{
-    padding: 0px;
+    padding: 5px;
     margin: 0px;
 }
   
@@ -149,6 +154,16 @@ label{
     width: 50px;
     height: 50px;
 }
+
+.input-forma-entrega{
+    margin: 18px 5px;
+}
+
+.form-check-input:checked{
+    background-color: #55932f;
+    border-color: #005333;
+}
+
 
 @media screen and (max-width: 480px){    
     .carrito{

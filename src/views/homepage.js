@@ -57,5 +57,5 @@ function showPopUp(title, text, callback){
 }
 
 setTimeout(() => {
-    onImageItemClick(document.querySelectorAll(".categoria-container"));        
+    onImageItemClick(document.querySelectorAll(".card-categoria"));        
 }, 500);

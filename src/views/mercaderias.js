@@ -70,6 +70,10 @@ async function renderCards(){
     }
 
     listaMercaderias.forEach(mercaderia =>{ 
+        if (mercaderia.imagen != undefined){
+            mercaderia.imagen = validateUrlImagen(mercaderia.imagen);
+        }
+        
         cardsContainer.innerHTML += RenderCard(mercaderia);
     })
 
@@ -80,11 +84,6 @@ async function renderCards(){
 function renderDetalle(mercaderia){
     let detalleMercaderia = document.getElementById("modalMercaderiaBody");
     let mercaderiaTitle = document.getElementById("modalMercaderiaTitle");
-    // let mercaderiaButton = document.getElementsByName("buttonAdd");
-    //let elementCantidad = document.getElementById("select-cantidad"); 
-    //elementCantidad.id = "select-cantidad-modal_" + mercaderia.id;
-
-    // mercaderiaButton[0].id = mercaderia.id
     mercaderiaTitle.innerHTML = mercaderia.nombre;
     detalleMercaderia.innerHTML = RenderDetalle(mercaderia);
 }
@@ -115,7 +114,7 @@ function agregarProducto(id){
     let cantidad = parseInt(elementCantidad.options[elementCantidad.selectedIndex].value);
     
     carritoService.SaveProduct(product, cantidad);
-    showCarrito();
+    //showCarrito();
 }
 
 function checkCarrito(){    
@@ -144,20 +143,33 @@ function showCarrito(){
     carritoTitulo.classList = 'flex-center title div-confirmar';
 }
 
-function get_params_from_href(){
+function getParamsFromHref(){
     var href = window.location.href;
     var paramstr = href.split('?')[1];
     if (paramstr != undefined && paramstr > 0 && paramstr < 11){
         selectCategoria.value = paramstr;               
     }
-    // if (paramstr != undefined && paramstr.split('=')[1] > 0 && paramstr.split('=')[1] < 11){
-    //     selectCategoria.value = paramstr.split('=')[1];               
-    // }
-  }
+}
+
+function validateUrlImagen(imagen){
+    let imagenUrl = imagen;
+
+    let imagenParts = imagen.split('/');  
+    if (imagenParts[2] == 'drive.google.com' && imagenParts[imagenParts.length -1] == 'view'){
+        //imagenUrl = `https://www.googleapis.com/drive/v3/files/${imagenParts[5]}?alt=media&key=AIzaSyBY5G5xHHpWM8DlcK6Xqh4WqIHmkqvSDXc`
+        imagenUrl = `https://drive.google.com/uc?id=${imagenParts[5]}`
+    }
+    else{
+        let imageId = imagen.split('id=')[1];
+        //imagenUrl = `https://www.googleapis.com/drive/v3/files/${imageId}?alt=media&key=AIzaSyBY5G5xHHpWM8DlcK6Xqh4WqIHmkqvSDXc`
+    }
+
+    return imagenUrl;
+}
 
 //onload
-get_params_from_href();
-checkCarrito();
+getParamsFromHref();
+//checkCarrito();
 setTimeout(() => {
     getMercaderias();
 }, 500); 

@@ -33,12 +33,12 @@
 
 .comanda-guid{    
     padding: 5px;
-    color: black!important;
+    color: black;
     font-weight: bolder;
 }
 
 .card-text{
-    color: #aaa;  
+    color: #444;  
     font-size: 1.3rem;  
 }
 

@@ -1,10 +1,10 @@
 .card{
-  width: 20rem!important;
+  width: 20rem;
   padding: 0px;
   margin: 1rem;
   background-color: #1b1b1b;
   color: white;
-  border: 0!important;    
+  border: 0;    
   box-shadow: 15px 15px 18px rgba(1, 4, 2, 0.5);
 }
 
@@ -14,7 +14,7 @@
 }
 
 .row>.card{
-  padding: 0px!important;
+  padding: 0px;
 }
 
 .card-body{
@@ -22,7 +22,6 @@
 }
 
 .card-body>div{
-  position: absolute;
   right:    0;
   bottom:   0;
   margin: 5px;
@@ -41,10 +40,9 @@
 }
 
 .card-body>span{
-  position: absolute;
   left:    0;
   bottom:   0;
-  margin: 5px 15px;
+  /* margin: 5px 15px; */
   font-weight: bold;
 }
 

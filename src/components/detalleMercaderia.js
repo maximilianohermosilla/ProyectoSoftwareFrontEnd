@@ -9,7 +9,7 @@ export default function RenderDetalle(mercaderia){
             <hr class="hr" />
             <h4 class="detalle-categoria">${mercaderia.tipo.descripcion}</h4>
             <hr class="hr" />
-            <h2 disabled class="detalle-precio btn btn-warning">$${mercaderia.precio}</h2>
+            <h2 disabled class="detalle-precio">$${mercaderia.precio}</h2>
             <hr class="hr" />
             <h3>Ingredientes:</h3>
             <h4 class="detalle-categoria">${mercaderia.ingredientes}</h4>
