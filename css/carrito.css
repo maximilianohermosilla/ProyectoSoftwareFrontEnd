@@ -130,7 +130,7 @@ label{
     padding: 15px 5px; 
     box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
     /* background: -webkit-linear-gradient(90deg , #262626,#2c2c2c);     */
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.4);
 }
   
 .divTituloCarrito>div{
