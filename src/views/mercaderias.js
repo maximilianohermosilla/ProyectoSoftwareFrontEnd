@@ -156,7 +156,7 @@ function validateUrlImagen(imagen){
 
     let imagenParts = imagen.split('/');  
     if (imagenParts[2] == 'drive.google.com' && imagenParts[imagenParts.length -1] == 'view'){
-        imagenUrl = `https://drive.google.com/uc?id=${imagenParts[5]}`
+        imagenUrl = `https://drive.google.com/uc?export=view&id=${imagenParts[5]}`
     }
     else{
         let imageId = imagen.split('id=')[1];

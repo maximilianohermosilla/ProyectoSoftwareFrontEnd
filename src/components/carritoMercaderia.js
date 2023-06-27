@@ -2,7 +2,7 @@ export default function RenderCarrito(mercaderia){
     return `
     <div class="row carrito">
         <div class="carrito-img col-2 flex-center">
-            <img cross-origin="anonymous" id="${mercaderia.id}" src="${mercaderia.imagen}" class="img-carrito" onerror="this.src='../images/notfound.png'">
+            <img cross-origin="use-credentials" id="${mercaderia.id}" src="${mercaderia.imagen}" class="img-carrito" onerror="this.src='../images/notfound.png'">
         </div>
         <div class="carrito-body col-lg-5 col-4 flex-center">
             <div class="div-body">
@@ -20,7 +20,7 @@ export default function RenderCarrito(mercaderia){
         <div class="carrito-precio col-lg-2 col-3 flex-center">
             <div class="span-precio">$${mercaderia.precio * mercaderia.cantidad}</div>
         </div>
-        <div class="carrito-cantidad col-1">
+        <div class="carrito-close col-1">
             <i id="${mercaderia.id}" class="btn-close delete-icon"></i></h5>
         </div>
     </div>
