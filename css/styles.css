@@ -2,10 +2,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Lato", sans-serif;
-  background: -webkit-linear-gradient(180deg , #5d5d5d,#3c3c3c);
+  background: -webkit-linear-gradient(180deg , #706161,#3c3c3c);
   height: 100%;
-  margin-top: 54px;
-  margin-bottom: 60px;
+  min-height: 100vh;
+}
+
+.main{
+  min-height: calc(100vh - 56px);
+  padding-top: 60px;
 }
 
 .row{
@@ -86,7 +90,6 @@ body {
 }
 
 .footer {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;

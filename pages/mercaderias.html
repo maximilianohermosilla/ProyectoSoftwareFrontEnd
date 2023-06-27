@@ -22,79 +22,83 @@
         <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
             <!-- navbar.html -->
         </nav>
-   
-        <div class="title-container flex-center text-center">
-            <div class="row container">
-                <h1 id="title">Productos</h1>               
-            </div>
-        </div>
-        <br> 
-        <div class="container">
-            <div class="row">
-                <div class="search">                    
-                    <select id="select-categoria" class="form-select" aria-label="select-categoria">
-                        <option value="0" selected>- Todas las categorías -</option>
-                        <option value="1">Entrada</option>
-                        <option value="2">Minutas</option>
-                        <option value="3">Pastas</option>
-                        <option value="4">Parrilla</option>
-                        <option value="5">Pizzas</option>
-                        <option value="6">Sandwich</option>
-                        <option value="7">Ensaladas</option>
-                        <option value="8">Bebidas</option>
-                        <option value="9">Cerveza Artesanal</option>
-                        <option value="10">Postres</option>
-                    </select>
-                    <input id="txtSearch" class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
-                    <button id="btnSearch" class="btn btn-success" type="submit"><i class="bi bi-search"></i>Buscar</button>
-                    <select id="select-orden" class="form-select" aria-label="select-orden">
-                        <option value="ASC" selected>Menor Precio</option>
-                        <option value="DESC">Mayor Precio</option>
-                    </select>    
-                </div>
-            </div>
-        </div>  
-
-        <div class="container-fluid" id="main-container">
-            <div class="row">
-                <div class="col-12 row flex-center" id="cardContainer">
-                    <div class="sk-circle" id="circle">
-                        <div class="sk-circle1 sk-child"></div>
-                        <div class="sk-circle2 sk-child"></div>
-                        <div class="sk-circle3 sk-child"></div>
-                        <div class="sk-circle4 sk-child"></div>
-                        <div class="sk-circle5 sk-child"></div>
-                        <div class="sk-circle6 sk-child"></div>
-                        <div class="sk-circle7 sk-child"></div>
-                        <div class="sk-circle8 sk-child"></div>
-                        <div class="sk-circle9 sk-child"></div>
-                        <div class="sk-circle10 sk-child"></div>
-                        <div class="sk-circle11 sk-child"></div>
-                        <div class="sk-circle12 sk-child"></div>
+        <div class="main">
+            <div class="main-content">
+                <div class="title-container flex-center text-center">
+                    <div class="row container">
+                        <h1 id="title">Productos</h1>               
                     </div>
-                    <!-- cardMercaderia.js -->
                 </div>
-                <div class="col-xl-4 col-12" id="carrito-container">
-                    <!-- carritoDetalle.html -->
-                </div>
-            </div>
-        </div>  
+                <br> 
+                <div class="container">
+                    <div class="row">
+                        <div class="search">                    
+                            <select id="select-categoria" class="form-select" aria-label="select-categoria">
+                                <option value="0" selected>- Todas las categorías -</option>
+                                <option value="1">Entrada</option>
+                                <option value="2">Minutas</option>
+                                <option value="3">Pastas</option>
+                                <option value="4">Parrilla</option>
+                                <option value="5">Pizzas</option>
+                                <option value="6">Sandwich</option>
+                                <option value="7">Ensaladas</option>
+                                <option value="8">Bebidas</option>
+                                <option value="9">Cerveza Artesanal</option>
+                                <option value="10">Postres</option>
+                            </select>
+                            <input id="txtSearch" class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
+                            <button id="btnSearch" class="btn btn-success" type="submit"><i class="bi bi-search"></i>Buscar</button>
+                            <select id="select-orden" class="form-select" aria-label="select-orden">
+                                <option value="ASC" selected>Menor Precio</option>
+                                <option value="DESC">Mayor Precio</option>
+                            </select>    
+                        </div>
+                    </div>
+                </div>  
 
-        <div id="modalContainer">
-            <!-- modalMercaderiaDetalle.html -->
+                <div class="container-fluid" id="main-container">
+                    <div class="row">
+                        <div class="col-12 row flex-center" id="cardContainer">
+                            <div class="sk-circle" id="circle">
+                                <div class="sk-circle1 sk-child"></div>
+                                <div class="sk-circle2 sk-child"></div>
+                                <div class="sk-circle3 sk-child"></div>
+                                <div class="sk-circle4 sk-child"></div>
+                                <div class="sk-circle5 sk-child"></div>
+                                <div class="sk-circle6 sk-child"></div>
+                                <div class="sk-circle7 sk-child"></div>
+                                <div class="sk-circle8 sk-child"></div>
+                                <div class="sk-circle9 sk-child"></div>
+                                <div class="sk-circle10 sk-child"></div>
+                                <div class="sk-circle11 sk-child"></div>
+                                <div class="sk-circle12 sk-child"></div>
+                            </div>
+                            <!-- cardMercaderia.js -->
+                        </div>
+                        <div class="col-xl-4 col-12" id="carrito-container">
+                            <!-- carritoDetalle.html -->
+                        </div>
+                    </div>
+                </div>  
+
+                <div id="modalContainer">
+                    <!-- modalMercaderiaDetalle.html -->
+                </div>
+
+                <div class="container-fluid" id="modalConfirmContainer">
+                    <!-- confirmModal.js -->
+                </div>  
+            </div>
         </div>
-
-        <div class="container-fluid" id="modalConfirmContainer">
-            <!-- confirmModal.js -->
-        </div>  
-
-        <footer class="footer text-center text-white">
-            <div class="text-center p-3">
-                © 2023 Copyright:
-                <a class="text-white" href="#">RestaurantePS.com</a>.
-                Desarrollado por: <strong>Hermosilla Andrés Maximiliano</strong>
-            </div>
-        </footer>
+        <div class="footer">
+            <footer class="footer text-center text-white">
+                <div class="text-center p-3">
+                    © 2023 Copyright:
+                    <a class="text-white" href="#">RestaurantePS.com</a>.
+                    Desarrollado por: <strong>Hermosilla Andrés Maximiliano</strong>
+                </div>
+            </footer>
+        </div>
         
         <!-- Scripts -->
         <script type="module" src="..\src\main.js"></script>         

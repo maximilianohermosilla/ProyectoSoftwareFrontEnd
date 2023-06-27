@@ -24,51 +24,55 @@
         <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
             <!-- navbar.html -->
         </nav>
+        <div class="main">
+            <div class="main-content">
+                <div class="title-container flex-center text-center">
+                    <div class="row container">
+                        <h1 id="title">Comandas</h1>
+                    </div>
+                </div>  
+                <br>
+                <div class="container flex-center text-center">            
+                    <label class="title">Fecha: </label>
+                    <input class="form-control fecha"id="fechaComanda" type="date">                
+                    <button class="btn btn-success" id="btnBuscar">Buscar</button> 
+                </div>  
 
-        <div class="title-container flex-center text-center">
-            <div class="row container">
-                <h1 id="title">Comandas</h1>
-            </div>
-        </div>  
-        <br>
-        <div class="container flex-center text-center">            
-            <label class="title">Fecha: </label>
-            <input class="form-control fecha"id="fechaComanda" type="date">                
-            <button class="btn btn-success" id="btnBuscar">Buscar</button> 
-        </div>  
+                <div id="comandasContainer" class="col-12 row flex-center">
+                    <div class="sk-circle" id="circle">
+                        <div class="sk-circle1 sk-child"></div>
+                        <div class="sk-circle2 sk-child"></div>
+                        <div class="sk-circle3 sk-child"></div>
+                        <div class="sk-circle4 sk-child"></div>
+                        <div class="sk-circle5 sk-child"></div>
+                        <div class="sk-circle6 sk-child"></div>
+                        <div class="sk-circle7 sk-child"></div>
+                        <div class="sk-circle8 sk-child"></div>
+                        <div class="sk-circle9 sk-child"></div>
+                        <div class="sk-circle10 sk-child"></div>
+                        <div class="sk-circle11 sk-child"></div>
+                        <div class="sk-circle12 sk-child"></div>
+                    </div>
+                    <!-- cardComanda.js -->
+                </div>
 
-        <div id="comandasContainer" class="col-12 row flex-center">
-            <div class="sk-circle" id="circle">
-                <div class="sk-circle1 sk-child"></div>
-                <div class="sk-circle2 sk-child"></div>
-                <div class="sk-circle3 sk-child"></div>
-                <div class="sk-circle4 sk-child"></div>
-                <div class="sk-circle5 sk-child"></div>
-                <div class="sk-circle6 sk-child"></div>
-                <div class="sk-circle7 sk-child"></div>
-                <div class="sk-circle8 sk-child"></div>
-                <div class="sk-circle9 sk-child"></div>
-                <div class="sk-circle10 sk-child"></div>
-                <div class="sk-circle11 sk-child"></div>
-                <div class="sk-circle12 sk-child"></div>
+
+                
+                <div class="container" id="comandas-empty">
+                    <h3 class="title" id="title-empty"></h3>
+                </div>  
             </div>
-            <!-- cardComanda.js -->
+       
         </div>
-
-        <hr>
-        
-        <div class="container" id="comandas-empty">
-            <h3 class="title" id="title-empty"></h3>
-        </div>  
-
-        <footer class="footer text-center text-white">
-            <div class="text-center p-3">
-                © 2023 Copyright:
-                <a class="text-white" href="#">RestaurantePS.com</a>.
-                Desarrollado por: <strong>Hermosilla Andrés Maximiliano</strong>
-            </div>
-        </footer>
-    
+        <div class="footer">
+            <footer class="footer text-center text-white">
+                <div class="text-center p-3">
+                    © 2023 Copyright:
+                    <a class="text-white" href="#">RestaurantePS.com</a>.
+                    Desarrollado por: <strong>Hermosilla Andrés Maximiliano</strong>
+                </div>
+            </footer>
+        </div>
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script type="module" src="..\src\views\initLoader.js"></script> 

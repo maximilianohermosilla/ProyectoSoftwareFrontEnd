@@ -40,6 +40,10 @@
   overflow-y: auto;
 }
 
+.footer{
+  position: inherit;
+}
+
 @media screen and (max-width: 480px){    
   #main-container{
     padding: 0px;

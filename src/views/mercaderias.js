@@ -156,12 +156,10 @@ function validateUrlImagen(imagen){
 
     let imagenParts = imagen.split('/');  
     if (imagenParts[2] == 'drive.google.com' && imagenParts[imagenParts.length -1] == 'view'){
-        //imagenUrl = `https://www.googleapis.com/drive/v3/files/${imagenParts[5]}?alt=media&key=AIzaSyBY5G5xHHpWM8DlcK6Xqh4WqIHmkqvSDXc`
         imagenUrl = `https://drive.google.com/uc?id=${imagenParts[5]}`
     }
     else{
         let imageId = imagen.split('id=')[1];
-        //imagenUrl = `https://www.googleapis.com/drive/v3/files/${imageId}?alt=media&key=AIzaSyBY5G5xHHpWM8DlcK6Xqh4WqIHmkqvSDXc`
     }
 
     return imagenUrl;
