@@ -80,7 +80,15 @@
 
 .footer{
     position: inherit;
-  }
+}
+
+#btnBuscar>i{
+    margin-right: 5px;
+}
+
+.buscar-container, #comandasContainer{
+    margin-bottom: 1rem;
+}
 
 @media screen and (max-width: 480px){   
     .comanda-guid{   

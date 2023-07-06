@@ -15,6 +15,7 @@ hr{
     height: 90%;
     max-height: 100px;
     border-radius: 10px;
+    object-fit: cover;    
 }
 
 .div-body{
@@ -118,7 +119,6 @@ label{
 }
 
 #div-confirmar{
-    height: 100%;
     border-radius: 10px;
     border: 1px solid #5f5f5f;
     margin: 10px; 
@@ -129,7 +129,6 @@ label{
     border-radius: 10px;
     padding: 15px 5px; 
     box-shadow: 5px 3px 8px rgba(1, 4, 2, 0.5);
-    /* background: -webkit-linear-gradient(90deg , #262626,#2c2c2c);     */
     background-color: rgba(0,0,0,0.4);
 }
   

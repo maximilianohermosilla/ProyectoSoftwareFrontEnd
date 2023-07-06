@@ -35,9 +35,12 @@
 .modal-dialog{
   overflow-y: initial;
 }
-.modal-body{
-  
+.modal-body{  
   overflow-y: auto;
+}
+
+.buscar-container{
+  margin-bottom: 1rem;
 }
 
 .footer{
