@@ -71,4 +71,7 @@
   #select-orden,  #select-categoria{
     max-width: 480px;
   }
+  .mercaderia-imagen{
+    min-width: 330px;
+  }
 }

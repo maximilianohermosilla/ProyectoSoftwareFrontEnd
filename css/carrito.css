@@ -87,6 +87,7 @@ hr{
     justify-content: center;
     align-items: center;
     gap: 2;
+    padding-left: 2rem;
 }
 
 label{
@@ -174,6 +175,10 @@ label{
     cursor: pointer;
 }
 
+.detalle-container{
+    padding: 0.5rem;
+}
+
 
 @media screen and (max-width: 480px){    
     .carrito{
@@ -193,11 +198,23 @@ label{
         height: 100%;
     }
 
-    .container-fluid{
-        padding: 0;
+    .detalle-container{
+        padding: 0.5rem;
     }
 
     #carrito-container{
         margin-left: 0px;
+    }
+
+    .carrito-precio{
+        justify-content: end;
+    }
+    .check-forma{
+        margin-left: 1rem;
+    }
+
+    .divTituloCarrito, #div-confirmar{        
+        padding: 0;
+        margin: 0;
     }
 }

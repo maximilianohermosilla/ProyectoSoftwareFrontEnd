@@ -88,6 +88,7 @@
 
 .buscar-container, #comandasContainer{
     margin-bottom: 1rem;
+    padding: 0.5rem;
 }
 
 @media screen and (max-width: 480px){   
@@ -97,5 +98,10 @@
 
     .fecha{
         margin-right: 2px;
+    }
+
+    #btnBuscar{
+        font-size: 0.7rem;
+        padding: 10px;
     }
 }
